@@ -65,7 +65,7 @@ string Account::toString()
     accountString.append("Account type: " + this->getAccountType() + "\n");
 
     accountString.append("Owner: " + this->getCustomer()->getName() + "\n");
-    accountString.append("Type of Customer: " + to_string(this->getAccounNumber()) + "\n");
+    accountString.append("Type of Customer: " + this->getCustomer()->getCustomerType() + "\n");
     accountString.append("Balance: $" + to_string(this->getBalance()) + "\n" + "\n");
 
     accountString.append("|---------|------------|--------------|------------|\n");
