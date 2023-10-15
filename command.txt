@@ -1,0 +1,3 @@
+g++ -std=c++11 -o main.cpp 
+
+g++ -std=c++11 -o myprogram main.cpp ./src/helpers/cliHelper.cpp ./src/helpers/DateHelper.h 
