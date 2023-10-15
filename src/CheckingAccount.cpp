@@ -5,6 +5,7 @@
 
 CheckingAccount::CheckingAccount(Customer* customer): Account(customer)
 {
+    this->accountType = "Checking";
 }
 
 void CheckingAccount::deposit(double amount, Date date)
@@ -31,30 +32,26 @@ void CheckingAccount::withdraw(double amount, Date date)
 
 void CheckingAccount::addInterest()
 {
-    cout << "CheckingAccount->addInterest(): Got here" << endl;
     if (this->getBalance() > 0)
     {
         Date interestStartDate = this->transactions[0]->getDate();
-        
-        cout << "CheckingAccount->addInterest(): Got here" << endl;
 
-        for (int index = 0; index < this->transactions.size(); index++)
-        {
-            if (this->transactions[index]->getTransactionType() == "interest")
-            {
-                interestStartDate = this->transactions[index]->getDate();
-            }
-        }
-        // Transaction *lastInterestTransactionPtr = nullptr;
-        // for (Transaction *currentTransactionPtr : this->transactions)
+        // for (int index = 0; index < this->transactions.size(); index++)
         // {
-        //     if (currentTransactionPtr->getTransactionType() == "interest")
+        //     if (this->transactions[index]->getTransactionType() == "interest")
         //     {
-        //         interestStartDate = currentTransactionPtr->getDate();
+        //         interestStartDate = this->transactions[index]->getDate();
         //     }
         // }
 
-        cout << "CheckingAccount->addInterest(): Got here" << endl;
+        // Transaction *lastInterestTransactionPtr = nullptr;
+        for (Transaction *currentTransactionPtr : this->transactions)
+        {
+            if (currentTransactionPtr->getTransactionType() == "interest")
+            {
+                interestStartDate = currentTransactionPtr->getDate();
+            }
+        }
 
         Date currentDate(time(0));
         int dateDifferenceInDays = currentDate - interestStartDate;

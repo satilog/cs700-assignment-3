@@ -4,6 +4,7 @@
 #include <sstream>
 #include <iomanip>
 
+#include "Helpers/cliHelper.h"
 #include "Helpers/Date.h"
 #include "Transaction.h"
 
@@ -67,11 +68,21 @@ string Transaction::toString(){
         shortType = "OD PEN";
     }
 
-    string dateString = date.to_string(); // Assuming the Date class has a toString method
-    ostringstream oss;
-    oss << shortType << "\t|\t" << dateString << "\t|\t" << amount << "\t|\t" << std::fixed << std::setprecision(2) << balance;
+    char output[100];
+    snprintf(output, sizeof(output), "| %-7s | %s | %8.4f | %10.2f |",
+        shortType.c_str(),
+        this->date.to_string().c_str(),
+        this->amount, 2,
+        this->balance, 2
+    );
 
-    return oss.str();
+    return string(output);
+
+    // string dateString = date.to_string(); // Assuming the Date class has a toString method
+    // ostringstream oss;
+    // oss << shortType << "\t|\t" << dateString << "\t|\t" << amount << "\t|\t" << std::fixed << std::setprecision(2) << balance;
+
+    // return oss.str();
 };
 
 // Transaction::~Transaction()

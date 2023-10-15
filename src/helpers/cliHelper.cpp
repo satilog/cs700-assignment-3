@@ -195,5 +195,8 @@ void handleCheckAccountChoice(Bank* bank) {
     cin >> accountNumber;
 
     Account* account = bank->getAccount(accountNumber);
+
+    account->deductCheckCharge();
+
     cout << account->toString() << endl;
 };

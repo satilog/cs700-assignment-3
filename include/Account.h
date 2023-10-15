@@ -19,6 +19,7 @@ protected:
     int accountNumber;
     double balance;
     vector<Transaction*> transactions;
+    string accountType;
 
 public:
     // Constructor
@@ -30,10 +31,13 @@ public:
     int getAccounNumber();
 
     double getBalance();
-    void setBalance(double newBalance);
-
     Customer* getCustomer();
+    string getAccountType();
+
+    void setBalance(double newBalance);
     void setCustomer(Customer* customer);
+
+    void deductCheckCharge();
 
     // void deposit(double amount, Date date);
     // void withdraw(double amount, Date date);
@@ -41,6 +45,8 @@ public:
     virtual void deposit(double amount, Date date) = 0;
     virtual void withdraw(double amount, Date date) = 0;
     virtual void addInterest() = 0;
+
+
 
     string toString();
 

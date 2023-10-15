@@ -16,12 +16,7 @@ void Bank::makeDeposit(long long accountNumber, double amount, string dateString
     int day = stoi(dateString.substr(8, 9));
     Date date(day, month, year);
 
-    cout << year << "-" << month << "-" << day << endl;
-
     Account *accPtr = this->getAccount(accountNumber);
-    
-    cout << "Bank->makeDeposit(): Got here" << endl;
-
     accPtr->deposit(amount, date);
 }
 
@@ -31,8 +26,6 @@ void Bank::makeWithdrawal(long long accountNumber, double amount, string dateStr
     int month = stoi(dateString.substr(5, 6));
     int day = stoi(dateString.substr(8, 9));
     Date date(day, month, year);
-
-    cout << year << "-" << month << "-" << day << endl;
 
     Account *accPtr = this->getAccount(accountNumber);
     accPtr->withdraw(amount, date);
