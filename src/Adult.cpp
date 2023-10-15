@@ -6,10 +6,10 @@ const double Adult::SAVINGS_INTEREST = 0.03;
 const double Adult::CHECK_INTEREST = 0.01;
 const double Adult::CHECK_CHARGE = 0.03;
 const double Adult::OVERDRAFT_PENALTY = 25;
-const string Adult::customerType = "ADULT";
 
 Adult::Adult(string name, string address, int age, long long telephoneNumber) : Customer(name, address, age, telephoneNumber)
 {
+    this->customerType = "Adult";
 }
 
 double Adult::getSavingsInterest()

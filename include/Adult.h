@@ -16,7 +16,6 @@ public:
     static const double CHECK_INTEREST;
     static const double CHECK_CHARGE;
     static const double OVERDRAFT_PENALTY;
-    static const string customerType;
 
     Adult(string name, string address, int age, long long telephoneNumber);
 

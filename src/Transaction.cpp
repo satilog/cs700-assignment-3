@@ -11,28 +11,35 @@ Transaction::Transaction(string transactionType, double amount, double previousB
 {
     if (transactionType == "deposit")
     {
+        this->transactionType = "deposit";
         this->balance = previousBalance + amount;
     }
     else if (transactionType == "withdraw")
     {
+        this->transactionType = "withdraw";
         this->balance = previousBalance - amount;
     }
     else if (transactionType == "checkCharge")
     {
+        this->transactionType = "checkCharge";
         this->balance = previousBalance - amount;
     }
     else if (transactionType == "interest")
     {
+        this->transactionType = "interest";
         this->balance = previousBalance + amount;
     }
     else if (transactionType == "overdraftPenalty")
     {
+        this->transactionType = "overdraftPenalty";
         this->balance = previousBalance - amount;
     }
     else
     {
         cout << "Invalid transaction type provided" << endl;
     }
+    
+    cout << "Transaction(): Got here" << endl;
 
     this->amount = amount;
     this->date = date;

@@ -36,6 +36,11 @@ long long Customer::getTelephoneNumber() const
     return this->telephoneNumber;
 };
 
+string Customer::getCustomerType()
+{
+    return this->customerType;
+};
+
 // Modifiers
 void Customer::setCustomerNumber(int number)
 {

@@ -17,6 +17,9 @@ private:
     int age;
     long long telephoneNumber;
 
+protected:
+    string customerType;
+
 public:
     Customer();
     Customer(string name, string address, int age, long long telephoneNumber);
@@ -26,6 +29,7 @@ public:
     string getAddress() const;
     int getAge() const;
     long long getTelephoneNumber() const;
+    string getCustomerType();
 
     // Modifiers
     void setCustomerNumber(int number);
@@ -33,6 +37,7 @@ public:
     void setAddress(const string &address);
     void setAge(int age);
     void setTelephoneNumber(long telephoneNumber);
+
 
     // virtual methods
     virtual double getSavingsInterest() = 0;

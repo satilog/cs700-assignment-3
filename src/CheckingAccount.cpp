@@ -3,24 +3,58 @@
 #include "CheckingAccount.h"
 #include "Transaction.h"
 
-CheckingAccount::CheckingAccount()
+CheckingAccount::CheckingAccount(Customer* customer): Account(customer)
 {
 }
 
+void CheckingAccount::deposit(double amount, Date date)
+{
+    Transaction *newDeposit = new Transaction("deposit", amount, this->getBalance(), date);
+    this->transactions.push_back(newDeposit);
+    this->setBalance(this->getBalance() + amount);
+
+    cout << "CheckingAccount->deposit(): Got here" << endl;
+
+    // After deposit add interest
+    this->addInterest();
+};
+
+void CheckingAccount::withdraw(double amount, Date date)
+{
+    // Before withdrawal add interest
+    this->addInterest();
+
+    Transaction *newWithdrawal = new Transaction("withdraw", amount, this->getBalance(), date);
+    this->transactions.push_back(newWithdrawal);
+    this->setBalance(this->getBalance() - amount);
+};
+
 void CheckingAccount::addInterest()
 {
+    cout << "CheckingAccount->addInterest(): Got here" << endl;
     if (this->getBalance() > 0)
     {
         Date interestStartDate = this->transactions[0]->getDate();
+        
+        cout << "CheckingAccount->addInterest(): Got here" << endl;
 
-        // Transaction *lastInterestTransactionPtr = nullptr;
-        for (Transaction *currentTransactionPtr : this->transactions)
+        for (int index = 0; index < this->transactions.size(); index++)
         {
-            if (currentTransactionPtr->getTransactionType() == "interest")
+            if (this->transactions[index]->getTransactionType() == "interest")
             {
-                interestStartDate = currentTransactionPtr->getDate();
+                interestStartDate = this->transactions[index]->getDate();
             }
         }
+        // Transaction *lastInterestTransactionPtr = nullptr;
+        // for (Transaction *currentTransactionPtr : this->transactions)
+        // {
+        //     if (currentTransactionPtr->getTransactionType() == "interest")
+        //     {
+        //         interestStartDate = currentTransactionPtr->getDate();
+        //     }
+        // }
+
+        cout << "CheckingAccount->addInterest(): Got here" << endl;
 
         Date currentDate(time(0));
         int dateDifferenceInDays = currentDate - interestStartDate;

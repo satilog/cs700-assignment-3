@@ -7,8 +7,9 @@
 int accountCount = 0;
 
 // Constructor
-Account::Account()
+Account::Account(Customer* customer)
 {
+    this->customer = customer;
     balance = 0;
     this->accountNumber = accountCount;
     accountCount += 1;
@@ -41,29 +42,14 @@ void Account::setCustomer(Customer* customer)
     this->customer = customer;
 };
 
-void Account::deposit(double amount, Date date)
-{
-    Transaction *newDeposit = new Transaction("deposit", amount, this->getBalance(), date);
-    this->transactions.push_back(newDeposit);
-    this->setBalance(this->getBalance() + amount);
-
-    // After deposit add interest
-    this->addInterest();
-};
-
-void Account::withdraw(double amount, Date date)
-{
-    // Before withdrawal add interest
-    this->addInterest();
-
-    Transaction *newWithdrawal = new Transaction("withdraw", amount, this->getBalance(), date);
-    this->transactions.push_back(newWithdrawal);
-    this->setBalance(this->getBalance() - amount);
-};
-
 string Account::toString()
 {
     string accountString = "";
+
+    accountString.append("Account: " + this->getAccounNumber() + '\n');
+    accountString.append("Owner: " + this->getCustomer()->getName() + '\n');
+    accountString.append("Type of Customer: " + this->getAccounNumber() + '\n');
+    accountString.append("Balance: $" + to_string(this->getBalance()) + '\n' + '\n');
 
     for (Transaction* transactionPtr: this->transactions) {
         accountString.append(transactionPtr->toString());

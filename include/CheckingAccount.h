@@ -11,9 +11,11 @@ class CheckingAccount : public Account
 {
 private:
 public:
-    CheckingAccount();
+    CheckingAccount(Customer* customer);
     virtual ~CheckingAccount();
-    
+
+    void deposit(double amount, Date date);
+    void withdraw(double amount, Date date);
     void addInterest();
 };
 

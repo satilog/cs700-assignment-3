@@ -22,7 +22,7 @@ protected:
 
 public:
     // Constructor
-    Account();
+    Account(Customer* customer);
     virtual ~Account();
 
     // Member Variables
@@ -35,9 +35,11 @@ public:
     Customer* getCustomer();
     void setCustomer(Customer* customer);
 
-    void deposit(double amount, Date date);
-    void withdraw(double amount, Date date);
+    // void deposit(double amount, Date date);
+    // void withdraw(double amount, Date date);
     // void addInterest();
+    virtual void deposit(double amount, Date date) = 0;
+    virtual void withdraw(double amount, Date date) = 0;
     virtual void addInterest() = 0;
 
     string toString();

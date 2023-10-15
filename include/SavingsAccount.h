@@ -11,9 +11,11 @@ class SavingsAccount : public Account
 {
 private:
 public:
-    SavingsAccount();
+    SavingsAccount(Customer* customer);
     virtual ~SavingsAccount();
     
+    void deposit(double amount, Date date);
+    void withdraw(double amount, Date date);
     void addInterest();
 };
 

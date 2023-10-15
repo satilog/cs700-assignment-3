@@ -127,10 +127,10 @@ void handleAddAccountChoice(Bank* bank)
         switch (selectedAccountTypeOption)
         {
         case 0:
-            newAccount = new CheckingAccount();
+            newAccount = new CheckingAccount(newCustomer);
             break;
         case 1:
-            newAccount = new SavingsAccount();
+            newAccount = new SavingsAccount(newCustomer);
             break;
         }
         break;
