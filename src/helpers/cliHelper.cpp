@@ -141,3 +141,59 @@ void handleAddAccountChoice(Bank* bank)
 
     return;
 }
+
+void handleMakeDepositChoice(Bank* bank) {
+    string dateString;
+    long long accountNumber;
+    double amount;
+
+    cout << "Enter Account Number: ";
+    cin >> accountNumber;
+
+    cout << "Enter the amount: ";
+    cin >> amount;
+
+    cout << "Enter the date yyyy-mm-dd: ";
+    cin >> dateString;
+
+    Account* account = bank->getAccount(accountNumber);
+    if (!account) {
+        cout << "Account " << accountNumber << " not found!" << endl;
+    }
+
+    bank->makeDeposit(accountNumber, amount, dateString);
+    cout << "Deposit in " << accountNumber << " account: $" << amount << " on " << dateString << " new balance " << account->getBalance() << endl;
+};
+
+void handleMakeWithdrawChoice(Bank* bank) {
+    string dateString;
+    long long accountNumber;
+    double amount;
+
+    cout << "Enter Account Number: ";
+    cin >> accountNumber;
+
+    cout << "Enter the amount: ";
+    cin >> amount;
+
+    cout << "Enter the date yyyy-mm-dd: ";
+    cin >> dateString;
+
+    Account* account = bank->getAccount(accountNumber);
+    if (!account) {
+        cout << "Account " << accountNumber << " not found!" << endl;
+    }
+
+    bank->makeWithdrawal(accountNumber, amount, dateString);
+    cout << "Withdrawal in " << accountNumber << " account: $" << amount << " on " << dateString << " new balance " << account->getBalance() << endl;
+};
+
+void handleCheckAccountChoice(Bank* bank) {
+    long long accountNumber;
+
+    cout << "Enter Account Number: ";
+    cin >> accountNumber;
+
+    Account* account = bank->getAccount(accountNumber);
+    cout << account->toString() << endl;
+};

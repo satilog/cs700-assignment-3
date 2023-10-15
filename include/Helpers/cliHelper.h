@@ -16,5 +16,8 @@ void showAccountTypeOptions();
 bool isValidOptionSelection(string choice, int  maxOptions);
 
 void handleAddAccountChoice(Bank* bank);
+void handleMakeDepositChoice(Bank* bank);
+void handleMakeWithdrawChoice(Bank* bank);
+void handleCheckAccountChoice(Bank* bank);
 
 #endif

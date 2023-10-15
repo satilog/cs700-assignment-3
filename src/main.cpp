@@ -37,17 +37,17 @@ int main()
             handleAddAccountChoice(bank);
             break;
         case 1:
-            // handleDepositMoneyChoice();
+            handleMakeDepositChoice(bank);
             break;
         case 2:
-            // handleWithdrawMoneyChoice();
+            handleMakeWithdrawChoice(bank);
             break;
         case 3:
-            // handleAccountSummaryChoice();
+            handleCheckAccountChoice(bank);
             break;
-        }
         default:
             break;
+        }
     }
     // const account = new Account();
 };
