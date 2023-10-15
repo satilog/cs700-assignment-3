@@ -14,8 +14,6 @@ void CheckingAccount::deposit(double amount, Date date)
     this->transactions.push_back(newDeposit);
     this->setBalance(this->getBalance() + amount);
 
-    cout << "CheckingAccount->deposit(): Got here" << endl;
-
     // After deposit add interest
     this->addInterest();
 };
