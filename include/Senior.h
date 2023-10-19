@@ -1,3 +1,13 @@
+/**
+ * @class Senior
+ * @brief A derived class from Customer representing a senior customer.
+ *
+ * This class holds information specific to senior customers, including
+ * their savings and checking account interests, check charges, and overdraft penalties.
+ *
+ * @author Sathyajit Loganathan
+ */
+
 #ifndef SENIOR_H
 #define SENIOR_H
 
@@ -9,15 +19,6 @@ using namespace std;
 
 #include "Customer.h"
 
-/**
- * @class Senior
- * @brief A derived class from Customer representing a senior customer.
- *
- * This class holds information specific to senior customers, including
- * their savings and checking account interests, check charges, and overdraft penalties.
- *
- * @author Sathyajit Loganathan
- */
 class Senior : public Customer
 {
 public:
