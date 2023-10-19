@@ -1,3 +1,10 @@
+/**
+ * @file Account.cpp
+ * @brief Contains the Account class definitions.
+ * @author Sathyajit Loganathan
+ * @date Oct 10 02:16:41 2023
+ */
+
 #include <iostream>
 
 #include "Helpers/Date.h"

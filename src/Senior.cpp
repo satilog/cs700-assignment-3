@@ -1,3 +1,12 @@
+/**
+ * @file Senior.cpp
+ * @author Sathyajit Loganathan
+ * @brief Implementation of the Bank class.
+ * @date Oct 10 02:16:41 2023
+ *
+ * This file provides the definitions for the functions declared in Senior.h.
+ */
+
 #include <iostream>
 
 #include "Senior.h"

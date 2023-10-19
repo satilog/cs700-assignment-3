@@ -1,3 +1,12 @@
+/**
+ * @file Adult.cpp
+ * @author Sathyajit Loganathan
+ * @brief Implementation of the Adult class.
+ * @date Oct 10 02:16:41 2023
+ *
+ * Defines the methods to get interest rates, check charge and overdraft penalty specifically for adult customers.
+ */
+
 #include <iostream>
 
 #include "Adult.h"

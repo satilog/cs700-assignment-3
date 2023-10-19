@@ -1,3 +1,10 @@
+/**
+ * @file Customer.cpp
+ * @author Sathyajit Loganathan
+ * @brief Contains the implementation for the Customer class.
+ * @date Oct 10 02:16:41 2023
+ */
+
 #include <iostream>
 
 #include "Customer.h"
@@ -58,7 +65,7 @@ void Customer::setAge(int age)
 {
     this->age = age;
 }
-void Customer::setTelephoneNumber(long telephoneNumber)
+void Customer::setTelephoneNumber(long long telephoneNumber)
 {
     this->telephoneNumber = telephoneNumber;
 }

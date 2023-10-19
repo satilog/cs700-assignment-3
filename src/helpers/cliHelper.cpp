@@ -1,3 +1,10 @@
+/**
+ * @file cliHelper.cpp
+ * @brief Source file containing the implementations of the helper functions for the CLI interface.
+ * @author Sathyajit Loganathan
+ * @date Oct 10 02:16:41 2023
+ */
+
 #include <iostream>
 #include <exception>
 

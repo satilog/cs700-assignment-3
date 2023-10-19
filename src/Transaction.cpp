@@ -1,3 +1,14 @@
+/**
+ * @file Transaction.cpp
+ * @brief Implements the Transaction class
+ * @author Sathyajit Loganathan
+ * @date Oct 10 02:16:41 2023
+ * 
+ * This implementation file provides the functionality for the Transaction
+ * class, allowing for the creation and manipulation of transaction objects.
+ */
+
+
 #include <iostream>
 #include <ctime>
 

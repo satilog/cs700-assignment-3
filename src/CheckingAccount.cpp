@@ -1,9 +1,16 @@
+/**
+ * @file CheckingAccount.cpp
+ * @brief This file contains the implementation of the CheckingAccount class.
+ * @author Sathyajit Loganathan
+ * @date Oct 10 02:16:41 2023
+ */
+
 #include <iostream>
 
 #include "CheckingAccount.h"
 #include "Transaction.h"
 
-CheckingAccount::CheckingAccount(Customer* customer): Account(customer)
+CheckingAccount::CheckingAccount(Customer *customer) : Account(customer)
 {
     this->accountType = "Checking";
 }
@@ -24,7 +31,8 @@ void CheckingAccount::withdraw(double amount, Date date)
     this->addInterest();
 
     // Charge overdraft penalty if amount is lower than 0 after withdrawal
-    if (this->getBalance() - amount < 0) {
+    if (this->getBalance() - amount < 0)
+    {
         Transaction *overdraftPenalty = new Transaction("overdraftPenalty", this->customer->getOverdraftPenalty(), this->getBalance(), date);
         this->transactions.push_back(overdraftPenalty);
         this->setBalance(this->getBalance() - this->customer->getOverdraftPenalty());
