@@ -13,8 +13,6 @@ void SavingsAccount::deposit(double amount, Date date)
     this->transactions.push_back(newDeposit);
     this->setBalance(this->getBalance() + amount);
 
-    cout << "SavingsAccount->deposit(): Got here" << endl;
-
     // After deposit add interest
     this->addInterest();
 };
@@ -23,6 +21,13 @@ void SavingsAccount::withdraw(double amount, Date date)
 {
     // Before withdrawal add interest
     this->addInterest();
+
+    // Charge overdraft penalty if amount is lower than 0 after withdrawal
+    if (this->getBalance() - amount < 0) {
+        Transaction *overdraftPenalty = new Transaction("overdraftPenalty", this->customer->getOverdraftPenalty(), this->getBalance(), date);
+        this->transactions.push_back(overdraftPenalty);
+        this->setBalance(this->getBalance() - this->customer->getOverdraftPenalty());
+    }
 
     Transaction *newWithdrawal = new Transaction("withdraw", amount, this->getBalance(), date);
     this->transactions.push_back(newWithdrawal);
