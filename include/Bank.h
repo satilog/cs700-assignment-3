@@ -16,8 +16,8 @@ class Bank {
         Bank();
 
         void addAccount(Account* account);
-        void makeDeposit(long long accountNumber, double amount, string dateString);
-        void makeWithdrawal(long long accountNumber, double amount, string dateString);
+        void makeDeposit(long long accountNumber, double amount, Date date);
+        void makeWithdrawal(long long accountNumber, double amount, Date date);
         Account* getAccount(long long accountNumber);
 };
 

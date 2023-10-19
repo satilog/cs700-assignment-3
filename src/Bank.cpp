@@ -9,24 +9,14 @@ void Bank::addAccount(Account *account)
     this->accounts.push_back(account);
 }
 
-void Bank::makeDeposit(long long accountNumber, double amount, string dateString)
+void Bank::makeDeposit(long long accountNumber, double amount, Date date)
 {
-    int year = stoi(dateString.substr(0, 4));
-    int month = stoi(dateString.substr(5, 6));
-    int day = stoi(dateString.substr(8, 9));
-    Date date(day, month, year);
-
     Account *accPtr = this->getAccount(accountNumber);
     accPtr->deposit(amount, date);
 }
 
-void Bank::makeWithdrawal(long long accountNumber, double amount, string dateString)
+void Bank::makeWithdrawal(long long accountNumber, double amount, Date date)
 {
-    int year = stoi(dateString.substr(0, 4));
-    int month = stoi(dateString.substr(5, 6));
-    int day = stoi(dateString.substr(8, 9));
-    Date date(day, month, year);
-
     Account *accPtr = this->getAccount(accountNumber);
     accPtr->withdraw(amount, date);
 }
