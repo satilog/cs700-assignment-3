@@ -39,8 +39,6 @@ Transaction::Transaction(string transactionType, double amount, double previousB
     {
         cout << "Invalid transaction type provided" << endl;
     }
-    
-    cout << "Transaction(): Got here" << endl;
 
     this->amount = amount;
     this->date = date;
@@ -68,8 +66,8 @@ string Transaction::toString(){
         shortType = "OD PEN";
     }
 
-    char output[100];
-    snprintf(output, sizeof(output), "| %-7s | %s | %8.4f | %10.2f |",
+    char output[150];
+    snprintf(output, sizeof(output), "| %-7s | %s | %12.4f | %10.2f |",
         shortType.c_str(),
         this->date.to_string().c_str(),
         this->amount,

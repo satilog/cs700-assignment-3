@@ -150,18 +150,32 @@ void handleMakeDepositChoice(Bank* bank) {
     cout << "Enter Account Number: ";
     cin >> accountNumber;
 
+    Account* account = bank->getAccount(accountNumber);
+    if (!account) {
+        cout << "Account " << accountNumber << " not found!" << endl;
+        cout << endl;
+        return;
+    }
+    
     cout << "Enter the amount: ";
     cin >> amount;
 
     cout << "Enter the date yyyy-mm-dd: ";
     cin >> dateString;
 
-    Account* account = bank->getAccount(accountNumber);
-    if (!account) {
-        cout << "Account " << accountNumber << " not found!" << endl;
+    int year = stoi(dateString.substr(0, 4));
+    int month = stoi(dateString.substr(5, 6));
+    int day = stoi(dateString.substr(8, 9));
+    Date date(day, month, year);
+
+    Date lastTransactionDate = account->getLastTransactionDate();
+    if (lastTransactionDate != Date() && lastTransactionDate > date) {
+        cout << "Invalid date provided! Date should be greater than " << lastTransactionDate.to_string() << endl;
+        cout << endl;
+        return;
     }
 
-    bank->makeDeposit(accountNumber, amount, dateString);
+    bank->makeDeposit(accountNumber, amount, date);
     cout << "Deposit in " << accountNumber << " account: $" << amount << " on " << dateString << " new balance " << account->getBalance() << endl;
 };
 
@@ -173,18 +187,32 @@ void handleMakeWithdrawChoice(Bank* bank) {
     cout << "Enter Account Number: ";
     cin >> accountNumber;
 
+    Account* account = bank->getAccount(accountNumber);
+    if (!account) {
+        cout << "Account " << accountNumber << " not found!" << endl;
+        cout << endl;
+        return;
+    }
+
     cout << "Enter the amount: ";
     cin >> amount;
 
     cout << "Enter the date yyyy-mm-dd: ";
     cin >> dateString;
 
-    Account* account = bank->getAccount(accountNumber);
-    if (!account) {
-        cout << "Account " << accountNumber << " not found!" << endl;
+    int year = stoi(dateString.substr(0, 4));
+    int month = stoi(dateString.substr(5, 6));
+    int day = stoi(dateString.substr(8, 9));
+    Date date(day, month, year);
+
+    Date lastTransactionDate = account->getLastTransactionDate();
+    if (lastTransactionDate != Date() && lastTransactionDate > date) {
+        cout << "Invalid date provided! Date should be greater than " << lastTransactionDate.to_string() << endl;
+        cout << endl;
+        return;
     }
 
-    bank->makeWithdrawal(accountNumber, amount, dateString);
+    bank->makeWithdrawal(accountNumber, amount, date);
     cout << "Withdrawal in " << accountNumber << " account: $" << amount << " on " << dateString << " new balance " << account->getBalance() << endl;
 };
 
@@ -195,6 +223,11 @@ void handleCheckAccountChoice(Bank* bank) {
     cin >> accountNumber;
 
     Account* account = bank->getAccount(accountNumber);
+    if (!account) {
+        cout << "Account " << accountNumber << " not found!" << endl;
+        cout << endl;
+        return;
+    }
 
     account->deductCheckCharge();
 
