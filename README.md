@@ -55,7 +55,7 @@ Internal documentation is provided in each source file using standard comment he
 
 ## Version Control
 
-The development process has been tracked using Git. All changes and development stages can be viewed on the GitHub repository. (Note: Ensure to update the repository link if different from the Assignment 2 repository)
+The development process has been tracked using Git. All changes and development stages can be viewed on the GitHub repository.
 
 [Github Repository Link](<https://github.com/satilog/cs700-assignment-3.git>)
 
