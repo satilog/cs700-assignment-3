@@ -3,7 +3,7 @@
 This is the solution to assignment 3 of CS700, which is a banking program that simulates the operations of a local bank.
 
 ## Directory Structure
-
+```
 .
 │
 ├── include
@@ -42,7 +42,7 @@ This is the solution to assignment 3 of CS700, which is a banking program that s
 ├── main - The main executable for the application.
 ├── Makefile - Contains the build rules for the project.
 └── README.md - YOU ARE HERE!
-
+```
 
 ## How to Run
 
