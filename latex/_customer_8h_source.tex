@@ -1,0 +1,57 @@
+\hypertarget{_customer_8h_source}{}\doxysection{Customer.\+h}
+\label{_customer_8h_source}\index{include/Customer.h@{include/Customer.h}}
+\mbox{\hyperlink{_customer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef CUSTOMER\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define CUSTOMER\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_customer}{Customer}}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{private}:}
+\DoxyCodeLine{27     \textcolor{keywordtype}{int} customerNumber; }
+\DoxyCodeLine{28     \textcolor{keywordtype}{string} name; }
+\DoxyCodeLine{29     \textcolor{keywordtype}{string} address; }
+\DoxyCodeLine{30     \textcolor{keywordtype}{int} age; }
+\DoxyCodeLine{31     \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} telephoneNumber; }
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{34     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_customer_a01acbcd598409e2296446936a52fbe0e}{customerType}}; }
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{public}:}
+\DoxyCodeLine{40     \mbox{\hyperlink{class_customer_abcc8fae9701e5ba9d7d6fe44498b34e3}{Customer}}();}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{50     \mbox{\hyperlink{class_customer_abcc8fae9701e5ba9d7d6fe44498b34e3}{Customer}}(\textcolor{keywordtype}{string} name, \textcolor{keywordtype}{string} address, \textcolor{keywordtype}{int} age, \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} telephoneNumber);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{comment}{// Accessors}}
+\DoxyCodeLine{53     \textcolor{keywordtype}{string} getName() \textcolor{keyword}{const};}
+\DoxyCodeLine{54     \textcolor{keywordtype}{string} getAddress() \textcolor{keyword}{const};}
+\DoxyCodeLine{55     \textcolor{keywordtype}{int} getAge() \textcolor{keyword}{const};}
+\DoxyCodeLine{56     \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} getTelephoneNumber() \textcolor{keyword}{const};}
+\DoxyCodeLine{57     \textcolor{keywordtype}{string} getCustomerType();}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{comment}{// Modifiers}}
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} setCustomerNumber(\textcolor{keywordtype}{int} number);}
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} setName(\textcolor{keyword}{const} \textcolor{keywordtype}{string} \&name);}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} setAddress(\textcolor{keyword}{const} \textcolor{keywordtype}{string} \&address);}
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} setAge(\textcolor{keywordtype}{int} age);}
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} setTelephoneNumber(\textcolor{keywordtype}{long} \textcolor{keywordtype}{long} telephoneNumber);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{comment}{// virtual methods}}
+\DoxyCodeLine{67     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} getSavingsInterest() = 0;}
+\DoxyCodeLine{68     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} getCheckingInterest() = 0;}
+\DoxyCodeLine{69     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} getCheckingCharge() = 0;}
+\DoxyCodeLine{70     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} getOverdraftPenalty() = 0;}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

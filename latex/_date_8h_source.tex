@@ -1,0 +1,484 @@
+\hypertarget{_date_8h_source}{}\doxysection{Date.\+h}
+\label{_date_8h_source}\index{include/Helpers/Date.h@{include/Helpers/Date.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef H\_\_DATE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define H\_\_DATE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <iosfwd>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{comment}{// \$Id: Date.h,v 1.3 2002/10/18 05:56:10 tknarr Exp \$}}
+\DoxyCodeLine{10 \textcolor{comment}{// Copyright (C) 2000, 2002}}
+\DoxyCodeLine{11 \textcolor{comment}{// Todd T. Knarr <tknarr@silverglass.org>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{comment}{// This program is free software; you can redistribute it and/or modify}}
+\DoxyCodeLine{14 \textcolor{comment}{// it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{15 \textcolor{comment}{// the Free Software Foundation; either version 2 of the License, or}}
+\DoxyCodeLine{16 \textcolor{comment}{// (at your option) any later version.}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{comment}{// This program is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{19 \textcolor{comment}{// but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{20 \textcolor{comment}{// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{21 \textcolor{comment}{// GNU General Public License for more details.}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{comment}{// You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{24 \textcolor{comment}{// along with this program; if not, write to the Free Software}}
+\DoxyCodeLine{25 \textcolor{comment}{// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-\/1307  USA}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{//}}
+\DoxyCodeLine{28 \textcolor{comment}{// Classname      : Date}}
+\DoxyCodeLine{29 \textcolor{comment}{//}}
+\DoxyCodeLine{30 \textcolor{comment}{// Author         : Todd Knarr}}
+\DoxyCodeLine{31 \textcolor{comment}{//}}
+\DoxyCodeLine{32 \textcolor{comment}{// Creation Date  : 29 Nov 1995}}
+\DoxyCodeLine{33 \textcolor{comment}{//}}
+\DoxyCodeLine{34 \textcolor{comment}{// Superclasses   : none}}
+\DoxyCodeLine{35 \textcolor{comment}{//}}
+\DoxyCodeLine{36 \textcolor{comment}{// Subclasses     : none}}
+\DoxyCodeLine{37 \textcolor{comment}{//}}
+\DoxyCodeLine{38 \textcolor{comment}{// Required files :}}
+\DoxyCodeLine{39 \textcolor{comment}{//}}
+\DoxyCodeLine{40 \textcolor{comment}{// Description    :}}
+\DoxyCodeLine{41 \textcolor{comment}{//}}
+\DoxyCodeLine{42 \textcolor{comment}{// Provides a Date class which represents dates as}}
+\DoxyCodeLine{43 \textcolor{comment}{// Julian day numbers ( days since 1 Jan 4713 BC ).}}
+\DoxyCodeLine{44 \textcolor{comment}{// This class can handle all dates from  1 Jan 4713BC to 31 Dec 4999AD.}}
+\DoxyCodeLine{45 \textcolor{comment}{//}}
+\DoxyCodeLine{46 \textcolor{comment}{// Note: Years AD are positive, years BC are negative. There is}}
+\DoxyCodeLine{47 \textcolor{comment}{// no year 0AD, it goes from 1BC to 1AD. A year of 0 will be treated}}
+\DoxyCodeLine{48 \textcolor{comment}{// as 1BC. No attempt is made to validate ranges. Physical errors}}
+\DoxyCodeLine{49 \textcolor{comment}{// will not result from insane day-\/month combinations like the 87th}}
+\DoxyCodeLine{50 \textcolor{comment}{// day of the 45th month, but the results will obviously not make}}
+\DoxyCodeLine{51 \textcolor{comment}{// much sense.}}
+\DoxyCodeLine{52 \textcolor{comment}{//}}
+\DoxyCodeLine{53 \textcolor{comment}{// Date conversion routines  by Eric bergman-\/Terrell, Computer Language,}}
+\DoxyCodeLine{54 \textcolor{comment}{//     Dec 1990.}}
+\DoxyCodeLine{55 \textcolor{comment}{// Alternate method by David Burki, CUJ Feb 1993.}}
+\DoxyCodeLine{56 \textcolor{comment}{//}}
+\DoxyCodeLine{57 \textcolor{comment}{// To Do:}}
+\DoxyCodeLine{58 \textcolor{comment}{// * Add << and >> operators for iostreams. They should probably output}}
+\DoxyCodeLine{59 \textcolor{comment}{//   and input the string form.}}
+\DoxyCodeLine{60 \textcolor{comment}{//}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{comment}{// Modified by Paul Wolfgang}}
+\DoxyCodeLine{63 \textcolor{comment}{// The ToString function has been deleted and replaced by}}
+\DoxyCodeLine{64 \textcolor{comment}{// a to\_string function that returns a std::string in the form}}
+\DoxyCodeLine{65 \textcolor{comment}{// yyyy-\/mm-\/dd.}}
+\DoxyCodeLine{66 \textcolor{comment}{// Added << and >> operators for iostreams. They read and write in the}}
+\DoxyCodeLine{67 \textcolor{comment}{// form yyyy-\/mm-\/dd.}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#include <time.h>}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{keyword}{class }\mbox{\hyperlink{class_date}{Date}}}
+\DoxyCodeLine{73 \{}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{keyword}{private}:}
+\DoxyCodeLine{76     \textcolor{keywordtype}{long} lJulianDay;}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{comment}{//}}
+\DoxyCodeLine{79     \textcolor{comment}{// Function      : YmdToJd}}
+\DoxyCodeLine{80     \textcolor{comment}{//}}
+\DoxyCodeLine{81     \textcolor{comment}{// Author        : Todd Knarr}}
+\DoxyCodeLine{82     \textcolor{comment}{//}}
+\DoxyCodeLine{83     \textcolor{comment}{// Creation date : 29 Nov 1995}}
+\DoxyCodeLine{84     \textcolor{comment}{//}}
+\DoxyCodeLine{85     \textcolor{comment}{// Parameters    : int year, month, day}}
+\DoxyCodeLine{86     \textcolor{comment}{//}}
+\DoxyCodeLine{87     \textcolor{comment}{// Return values : long julian day}}
+\DoxyCodeLine{88     \textcolor{comment}{//}}
+\DoxyCodeLine{89     \textcolor{comment}{// Description   :}}
+\DoxyCodeLine{90     \textcolor{comment}{//}}
+\DoxyCodeLine{91     \textcolor{comment}{// Internal routine that does the physical conversion}}
+\DoxyCodeLine{92     \textcolor{comment}{// from YMD form to Julian day number.}}
+\DoxyCodeLine{93     \textcolor{comment}{//}}
+\DoxyCodeLine{94     \textcolor{keyword}{static} \textcolor{keywordtype}{long} YmdToJd(\textcolor{keyword}{const} \textcolor{keywordtype}{int} iYear, \textcolor{keyword}{const} \textcolor{keywordtype}{int} iMonth, \textcolor{keyword}{const} \textcolor{keywordtype}{int} iDay);}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     \textcolor{comment}{//}}
+\DoxyCodeLine{97     \textcolor{comment}{// Function      : JdToYmd}}
+\DoxyCodeLine{98     \textcolor{comment}{//}}
+\DoxyCodeLine{99     \textcolor{comment}{// Author        : Todd Knarr}}
+\DoxyCodeLine{100     \textcolor{comment}{//}}
+\DoxyCodeLine{101     \textcolor{comment}{// Creation date : 29 Nov 1995}}
+\DoxyCodeLine{102     \textcolor{comment}{//}}
+\DoxyCodeLine{103     \textcolor{comment}{// Parameters    : long julian day, pointers to int year, month, day}}
+\DoxyCodeLine{104     \textcolor{comment}{//}}
+\DoxyCodeLine{105     \textcolor{comment}{// Return values : none}}
+\DoxyCodeLine{106     \textcolor{comment}{//}}
+\DoxyCodeLine{107     \textcolor{comment}{// Description   :}}
+\DoxyCodeLine{108     \textcolor{comment}{//}}
+\DoxyCodeLine{109     \textcolor{comment}{// Internal routine that reverses the conversion, turning a Julian}}
+\DoxyCodeLine{110     \textcolor{comment}{// day number into YMD values.}}
+\DoxyCodeLine{111     \textcolor{comment}{//}}
+\DoxyCodeLine{112     \textcolor{keyword}{static} \textcolor{keywordtype}{void} JdToYmd(\textcolor{keyword}{const} \textcolor{keywordtype}{long} lJD, \textcolor{keywordtype}{int} *piYear, \textcolor{keywordtype}{int} *piMonth,}
+\DoxyCodeLine{113                         \textcolor{keywordtype}{int} *piDay);}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{keyword}{public}:}
+\DoxyCodeLine{116     \textcolor{comment}{//}}
+\DoxyCodeLine{117     \textcolor{comment}{// Function      : IsLeapYear}}
+\DoxyCodeLine{118     \textcolor{comment}{//}}
+\DoxyCodeLine{119     \textcolor{comment}{// Author        : Todd Knarr}}
+\DoxyCodeLine{120     \textcolor{comment}{//}}
+\DoxyCodeLine{121     \textcolor{comment}{// Creation date : 5 Dec 1995}}
+\DoxyCodeLine{122     \textcolor{comment}{//}}
+\DoxyCodeLine{123     \textcolor{comment}{// Parameters    : int year}}
+\DoxyCodeLine{124     \textcolor{comment}{//}}
+\DoxyCodeLine{125     \textcolor{comment}{// Return values : 1 if the year given is a leap year}}
+\DoxyCodeLine{126     \textcolor{comment}{//                 0 if it is not}}
+\DoxyCodeLine{127     \textcolor{comment}{//}}
+\DoxyCodeLine{128     \textcolor{keyword}{static} \textcolor{keywordtype}{int} IsLeapYear(\textcolor{keyword}{const} \textcolor{keywordtype}{int} iYear)}
+\DoxyCodeLine{129     \{}
+\DoxyCodeLine{130         \textcolor{keywordtype}{long} jd1, jd2;}
+\DoxyCodeLine{131         jd1 = YmdToJd(iYear, 2, 28);}
+\DoxyCodeLine{132         jd2 = YmdToJd(iYear, 3, 1);}
+\DoxyCodeLine{133         \textcolor{keywordflow}{return} ((jd2 -\/ jd1) > 1);}
+\DoxyCodeLine{134     \}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136     \textcolor{comment}{//}}
+\DoxyCodeLine{137     \textcolor{comment}{// Function      : default constructor}}
+\DoxyCodeLine{138     \textcolor{comment}{//}}
+\DoxyCodeLine{139     \textcolor{comment}{// Author        : Todd Knarr}}
+\DoxyCodeLine{140     \textcolor{comment}{//}}
+\DoxyCodeLine{141     \textcolor{comment}{// Creation date : 29 Nov 1995}}
+\DoxyCodeLine{142     \textcolor{comment}{//}}
+\DoxyCodeLine{143     \textcolor{comment}{// Parameters    : none}}
+\DoxyCodeLine{144     \textcolor{comment}{//}}
+\DoxyCodeLine{145     \textcolor{comment}{// Return values : none}}
+\DoxyCodeLine{146     \textcolor{comment}{//}}
+\DoxyCodeLine{147     \textcolor{comment}{// Description   :}}
+\DoxyCodeLine{148     \textcolor{comment}{//}}
+\DoxyCodeLine{149     \textcolor{comment}{// Constructs a new object initialized to 1 Jan 4713BC}}
+\DoxyCodeLine{150     \textcolor{comment}{//}}
+\DoxyCodeLine{151     \mbox{\hyperlink{class_date}{Date}}()}
+\DoxyCodeLine{152     \{}
+\DoxyCodeLine{153         lJulianDay = 0L;}
+\DoxyCodeLine{154     \}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156     \textcolor{comment}{//}}
+\DoxyCodeLine{157     \textcolor{comment}{// Function      : copy constructor}}
+\DoxyCodeLine{158     \textcolor{comment}{//}}
+\DoxyCodeLine{159     \textcolor{comment}{// Author        : Todd Knarr}}
+\DoxyCodeLine{160     \textcolor{comment}{//}}
+\DoxyCodeLine{161     \textcolor{comment}{// Creation date : 13 Mar 1996}}
+\DoxyCodeLine{162     \textcolor{comment}{//}}
+\DoxyCodeLine{163     \textcolor{comment}{// Parameters    :}}
+\DoxyCodeLine{164     \textcolor{comment}{//}}
+\DoxyCodeLine{165     \textcolor{comment}{// Return values :}}
+\DoxyCodeLine{166     \textcolor{comment}{//}}
+\DoxyCodeLine{167     \mbox{\hyperlink{class_date}{Date}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_date}{Date}} \&Orig) \{ lJulianDay = Orig.lJulianDay; \}}
+\DoxyCodeLine{168     \mbox{\hyperlink{class_date}{Date}} \&operator=(\textcolor{keyword}{const} \mbox{\hyperlink{class_date}{Date}} \&Orig)}
+\DoxyCodeLine{169     \{}
+\DoxyCodeLine{170         lJulianDay = Orig.lJulianDay;}
+\DoxyCodeLine{171         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{172     \}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174     \textcolor{comment}{//}}
+\DoxyCodeLine{175     \textcolor{comment}{// Function      : time\_t constructor}}
+\DoxyCodeLine{176     \textcolor{comment}{//}}
+\DoxyCodeLine{177     \textcolor{comment}{// Author        : Todd Knarr}}
+\DoxyCodeLine{178     \textcolor{comment}{//}}
+\DoxyCodeLine{179     \textcolor{comment}{// Creation date : 29 Nov 1995}}
+\DoxyCodeLine{180     \textcolor{comment}{//}}
+\DoxyCodeLine{181     \textcolor{comment}{// Parameters    : none}}
+\DoxyCodeLine{182     \textcolor{comment}{//}}
+\DoxyCodeLine{183     \textcolor{comment}{// Return values : none}}
+\DoxyCodeLine{184     \textcolor{comment}{//}}
+\DoxyCodeLine{185     \textcolor{comment}{// Description   :}}
+\DoxyCodeLine{186     \textcolor{comment}{//}}
+\DoxyCodeLine{187     \textcolor{comment}{// Constructs an object initialized to the date}}
+\DoxyCodeLine{188     \textcolor{comment}{// represented by a system time value.}}
+\DoxyCodeLine{189     \textcolor{comment}{//}}
+\DoxyCodeLine{190     \mbox{\hyperlink{class_date}{Date}}(\textcolor{keyword}{const} time\_t tSysTime)}
+\DoxyCodeLine{191     \{}
+\DoxyCodeLine{192         \textcolor{keyword}{struct }tm *ptm;}
+\DoxyCodeLine{193         \textcolor{keywordtype}{int} y, m, d;}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195         ptm = localtime(\&tSysTime);}
+\DoxyCodeLine{196         y = ptm-\/>tm\_year + 1900;}
+\DoxyCodeLine{197         m = ptm-\/>tm\_mon + 1;}
+\DoxyCodeLine{198         d = ptm-\/>tm\_mday;}
+\DoxyCodeLine{199         lJulianDay = YmdToJd(y, m, d);}
+\DoxyCodeLine{200     \}}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202     \textcolor{comment}{//}}
+\DoxyCodeLine{203     \textcolor{comment}{// Function      : char* ( string ) constructor}}
+\DoxyCodeLine{204     \textcolor{comment}{//}}
+\DoxyCodeLine{205     \textcolor{comment}{// Author        : Todd Knarr}}
+\DoxyCodeLine{206     \textcolor{comment}{//}}
+\DoxyCodeLine{207     \textcolor{comment}{// Creation date : 30 Nov 1995}}
+\DoxyCodeLine{208     \textcolor{comment}{//}}
+\DoxyCodeLine{209     \textcolor{comment}{// Parameters    :}}
+\DoxyCodeLine{210     \textcolor{comment}{//}}
+\DoxyCodeLine{211     \textcolor{comment}{// Return values :}}
+\DoxyCodeLine{212     \textcolor{comment}{//}}
+\DoxyCodeLine{213     \textcolor{comment}{// Description   :}}
+\DoxyCodeLine{214     \textcolor{comment}{//}}
+\DoxyCodeLine{215     \textcolor{comment}{// Constructs an object from a string.}}
+\DoxyCodeLine{216     \textcolor{comment}{// The string is formatted as the ASCII representation}}
+\DoxyCodeLine{217     \textcolor{comment}{// of the long Julian day number.}}
+\DoxyCodeLine{218     \textcolor{comment}{//}}
+\DoxyCodeLine{219     \mbox{\hyperlink{class_date}{Date}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *String)}
+\DoxyCodeLine{220     \{}
+\DoxyCodeLine{221         lJulianDay = atol(String);}
+\DoxyCodeLine{222     \}}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224     \textcolor{comment}{//}}
+\DoxyCodeLine{225     \textcolor{comment}{// Function      : year/month/day constructor}}
+\DoxyCodeLine{226     \textcolor{comment}{//}}
+\DoxyCodeLine{227     \textcolor{comment}{// Author        : Todd Knarr}}
+\DoxyCodeLine{228     \textcolor{comment}{//}}
+\DoxyCodeLine{229     \textcolor{comment}{// Creation date : 29 Nov 1995}}
+\DoxyCodeLine{230     \textcolor{comment}{//}}
+\DoxyCodeLine{231     \textcolor{comment}{// Parameters    : int year, month, day}}
+\DoxyCodeLine{232     \textcolor{comment}{//}}
+\DoxyCodeLine{233     \textcolor{comment}{// Return values : none}}
+\DoxyCodeLine{234     \textcolor{comment}{//}}
+\DoxyCodeLine{235     \textcolor{comment}{// Description   :}}
+\DoxyCodeLine{236     \textcolor{comment}{//}}
+\DoxyCodeLine{237     \textcolor{comment}{// Constructs an object initialized to}}
+\DoxyCodeLine{238     \textcolor{comment}{// the date given by the arguments}}
+\DoxyCodeLine{239     \textcolor{comment}{//}}
+\DoxyCodeLine{240     \mbox{\hyperlink{class_date}{Date}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} iDay, \textcolor{keyword}{const} \textcolor{keywordtype}{int} iMonth, \textcolor{keyword}{const} \textcolor{keywordtype}{int} iYear)}
+\DoxyCodeLine{241     \{}
+\DoxyCodeLine{242         lJulianDay = YmdToJd(iYear, iMonth, iDay);}
+\DoxyCodeLine{243     \}}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245     \textcolor{comment}{//}}
+\DoxyCodeLine{246     \textcolor{comment}{// Function      : Year, Month, Day, DayOfYear, DayOfWeek, DayOfWorkWeek,}}
+\DoxyCodeLine{247     \textcolor{comment}{//                 IsLeapYear, YMD}}
+\DoxyCodeLine{248     \textcolor{comment}{//}}
+\DoxyCodeLine{249     \textcolor{comment}{// Author        : Todd Knarr}}
+\DoxyCodeLine{250     \textcolor{comment}{//}}
+\DoxyCodeLine{251     \textcolor{comment}{// Creation date : 29 Nov 1995}}
+\DoxyCodeLine{252     \textcolor{comment}{//}}
+\DoxyCodeLine{253     \textcolor{comment}{// Parameters    : none}}
+\DoxyCodeLine{254     \textcolor{comment}{//}}
+\DoxyCodeLine{255     \textcolor{comment}{// Return values : int or none}}
+\DoxyCodeLine{256     \textcolor{comment}{//}}
+\DoxyCodeLine{257     \textcolor{comment}{// Description   :}}
+\DoxyCodeLine{258     \textcolor{comment}{//}}
+\DoxyCodeLine{259     \textcolor{comment}{// Functions to return various parts of the date. The Year(),}}
+\DoxyCodeLine{260     \textcolor{comment}{// Month() and Day() functions return the corresponding parts}}
+\DoxyCodeLine{261     \textcolor{comment}{// of the date. The DayOfYear() returns the day of the year,}}
+\DoxyCodeLine{262     \textcolor{comment}{// with 1 Jan being day 1. The DayOfWeek() and DayOfWorkWeek()}}
+\DoxyCodeLine{263     \textcolor{comment}{// functions return the day of the week, from 0 through 6, with}}
+\DoxyCodeLine{264     \textcolor{comment}{// the DayOfWeek() matching localtime()'s convention ( 0 = Sunday,}}
+\DoxyCodeLine{265     \textcolor{comment}{// 6 = Saturday ) and DayOfWorkWeek() starting the week on}}
+\DoxyCodeLine{266     \textcolor{comment}{// Monday ( 0 = Monday, 6 = Sunday ). IsLeapYear() returns 1 if}}
+\DoxyCodeLine{267     \textcolor{comment}{// the date is in a leap year, 0 otherwise. YMD() puts the}}
+\DoxyCodeLine{268     \textcolor{comment}{// year, month and day values directly into three integer variables,}}
+\DoxyCodeLine{269     \textcolor{comment}{// for times when you need all three at the same time.}}
+\DoxyCodeLine{270     \textcolor{comment}{//}}
+\DoxyCodeLine{271     \textcolor{keywordtype}{int} Year(\textcolor{keywordtype}{void})\textcolor{keyword}{ const}}
+\DoxyCodeLine{272 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{273         \textcolor{keywordtype}{int} y, m, d;}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275         JdToYmd(lJulianDay, \&y, \&m, \&d);}
+\DoxyCodeLine{276         \textcolor{keywordflow}{return} y;}
+\DoxyCodeLine{277     \}}
+\DoxyCodeLine{278     \textcolor{keywordtype}{int} Month(\textcolor{keywordtype}{void})\textcolor{keyword}{ const}}
+\DoxyCodeLine{279 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{280         \textcolor{keywordtype}{int} y, m, d;}
+\DoxyCodeLine{281 }
+\DoxyCodeLine{282         JdToYmd(lJulianDay, \&y, \&m, \&d);}
+\DoxyCodeLine{283         \textcolor{keywordflow}{return} m;}
+\DoxyCodeLine{284     \}}
+\DoxyCodeLine{285     \textcolor{keywordtype}{int} Day(\textcolor{keywordtype}{void})\textcolor{keyword}{ const}}
+\DoxyCodeLine{286 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{287         \textcolor{keywordtype}{int} y, m, d;}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289         JdToYmd(lJulianDay, \&y, \&m, \&d);}
+\DoxyCodeLine{290         \textcolor{keywordflow}{return} d;}
+\DoxyCodeLine{291     \}}
+\DoxyCodeLine{292     \textcolor{keywordtype}{int} DayOfYear(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{293     \textcolor{keywordtype}{int} DayOfWeek(\textcolor{keywordtype}{void})\textcolor{keyword}{ const}}
+\DoxyCodeLine{294 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{295         \textcolor{keywordflow}{return} ((((\textcolor{keywordtype}{int})(lJulianDay \% 7L)) + 1) \% 7);}
+\DoxyCodeLine{296     \}}
+\DoxyCodeLine{297     \textcolor{keywordtype}{int} DayOfWorkWeek(\textcolor{keywordtype}{void})\textcolor{keyword}{ const}}
+\DoxyCodeLine{298 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{299         \textcolor{keywordflow}{return} ((\textcolor{keywordtype}{int})(lJulianDay \% 7L));}
+\DoxyCodeLine{300     \}}
+\DoxyCodeLine{301     \textcolor{keywordtype}{int} IsLeapYear(\textcolor{keywordtype}{void})\textcolor{keyword}{ const}}
+\DoxyCodeLine{302 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{303         \textcolor{keywordtype}{int} y, m, d;}
+\DoxyCodeLine{304         JdToYmd(lJulianDay, \&y, \&m, \&d);}
+\DoxyCodeLine{305         \textcolor{keywordflow}{return} IsLeapYear(y);}
+\DoxyCodeLine{306     \}}
+\DoxyCodeLine{307     \textcolor{keywordtype}{void} YMD(\textcolor{keywordtype}{int} *pY, \textcolor{keywordtype}{int} *pM, \textcolor{keywordtype}{int} *pD)}
+\DoxyCodeLine{308     \{}
+\DoxyCodeLine{309         JdToYmd(lJulianDay, pY, pM, pD);}
+\DoxyCodeLine{310         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{311     \}}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{313     \textcolor{comment}{//}}
+\DoxyCodeLine{314     \textcolor{comment}{// Function      : Additive operators}}
+\DoxyCodeLine{315     \textcolor{comment}{//}}
+\DoxyCodeLine{316     \textcolor{comment}{// Author        : Todd Knarr}}
+\DoxyCodeLine{317     \textcolor{comment}{//}}
+\DoxyCodeLine{318     \textcolor{comment}{// Creation date : 30 Nov 1995}}
+\DoxyCodeLine{319     \textcolor{comment}{//}}
+\DoxyCodeLine{320     \textcolor{comment}{// Parameters    : Date value and integer, or}}
+\DoxyCodeLine{321     \textcolor{comment}{//                 Two date values}}
+\DoxyCodeLine{322     \textcolor{comment}{//}}
+\DoxyCodeLine{323     \textcolor{comment}{// Return values : New Date, or difference between two Dates}}
+\DoxyCodeLine{324     \textcolor{comment}{//}}
+\DoxyCodeLine{325     \textcolor{comment}{// Description   :}}
+\DoxyCodeLine{326     \textcolor{comment}{//}}
+\DoxyCodeLine{327     \textcolor{comment}{// Adding an integral type to a Date adds the number of}}
+\DoxyCodeLine{328     \textcolor{comment}{// days in the integral type to the Date. Adding two Dates}}
+\DoxyCodeLine{329     \textcolor{comment}{// is not defined. Subtracting two dates yields the difference}}
+\DoxyCodeLine{330     \textcolor{comment}{// between them in days.}}
+\DoxyCodeLine{331     \textcolor{comment}{//}}
+\DoxyCodeLine{332     \textcolor{keyword}{friend} \mbox{\hyperlink{class_date}{Date}} operator+(\textcolor{keyword}{const} \mbox{\hyperlink{class_date}{Date}} \&Left, \textcolor{keyword}{const} \textcolor{keywordtype}{long} Right)}
+\DoxyCodeLine{333     \{}
+\DoxyCodeLine{334         \mbox{\hyperlink{class_date}{Date}} Temp = Left;}
+\DoxyCodeLine{335         Temp.lJulianDay += Right;}
+\DoxyCodeLine{336         \textcolor{keywordflow}{return} Temp;}
+\DoxyCodeLine{337     \}}
+\DoxyCodeLine{338     \textcolor{keyword}{friend} \mbox{\hyperlink{class_date}{Date}} operator+(\textcolor{keyword}{const} \textcolor{keywordtype}{long} Left, \textcolor{keyword}{const} \mbox{\hyperlink{class_date}{Date}} \&Right)}
+\DoxyCodeLine{339     \{}
+\DoxyCodeLine{340         \mbox{\hyperlink{class_date}{Date}} Temp = Right;}
+\DoxyCodeLine{341         Temp.lJulianDay += Left;}
+\DoxyCodeLine{342         \textcolor{keywordflow}{return} Temp;}
+\DoxyCodeLine{343     \}}
+\DoxyCodeLine{344     \mbox{\hyperlink{class_date}{Date}} \&operator+=(\textcolor{keyword}{const} \textcolor{keywordtype}{long} Right)}
+\DoxyCodeLine{345     \{}
+\DoxyCodeLine{346         lJulianDay += Right;}
+\DoxyCodeLine{347         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{348     \}}
+\DoxyCodeLine{349     \textcolor{keyword}{friend} \mbox{\hyperlink{class_date}{Date}} operator-\/(\textcolor{keyword}{const} \mbox{\hyperlink{class_date}{Date}} \&Left, \textcolor{keyword}{const} \textcolor{keywordtype}{long} Right)}
+\DoxyCodeLine{350     \{}
+\DoxyCodeLine{351         \mbox{\hyperlink{class_date}{Date}} Temp = Left;}
+\DoxyCodeLine{352         Temp.lJulianDay -\/= Right;}
+\DoxyCodeLine{353         \textcolor{keywordflow}{return} Temp;}
+\DoxyCodeLine{354     \}}
+\DoxyCodeLine{355     \textcolor{keyword}{friend} \mbox{\hyperlink{class_date}{Date}} operator-\/(\textcolor{keyword}{const} \textcolor{keywordtype}{long} Left, \textcolor{keyword}{const} \mbox{\hyperlink{class_date}{Date}} \&Right)}
+\DoxyCodeLine{356     \{}
+\DoxyCodeLine{357         \mbox{\hyperlink{class_date}{Date}} Temp = Right;}
+\DoxyCodeLine{358         Temp.lJulianDay -\/= Left;}
+\DoxyCodeLine{359         \textcolor{keywordflow}{return} Temp;}
+\DoxyCodeLine{360     \}}
+\DoxyCodeLine{361     \mbox{\hyperlink{class_date}{Date}} \&operator-\/=(\textcolor{keyword}{const} \textcolor{keywordtype}{long} Right)}
+\DoxyCodeLine{362     \{}
+\DoxyCodeLine{363         lJulianDay -\/= Right;}
+\DoxyCodeLine{364         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{365     \}}
+\DoxyCodeLine{366     \textcolor{keywordtype}{long} operator-\/(\textcolor{keyword}{const} \mbox{\hyperlink{class_date}{Date}} \&Right)}
+\DoxyCodeLine{367     \{}
+\DoxyCodeLine{368         \textcolor{keywordflow}{return} lJulianDay -\/ Right.lJulianDay;}
+\DoxyCodeLine{369     \}}
+\DoxyCodeLine{370 }
+\DoxyCodeLine{371     \textcolor{comment}{//}}
+\DoxyCodeLine{372     \textcolor{comment}{// Function      : ++ and -\/-\/ operators, prefix and postfix forms}}
+\DoxyCodeLine{373     \textcolor{comment}{//}}
+\DoxyCodeLine{374     \textcolor{comment}{// Author        : Todd Knarr}}
+\DoxyCodeLine{375     \textcolor{comment}{//}}
+\DoxyCodeLine{376     \textcolor{comment}{// Creation date : 1 Dec 1995}}
+\DoxyCodeLine{377     \textcolor{comment}{//}}
+\DoxyCodeLine{378     \textcolor{comment}{// Parameters    : none}}
+\DoxyCodeLine{379     \textcolor{comment}{//}}
+\DoxyCodeLine{380     \textcolor{comment}{// Return values : New Date}}
+\DoxyCodeLine{381     \textcolor{comment}{//}}
+\DoxyCodeLine{382     \mbox{\hyperlink{class_date}{Date}} \&operator++()}
+\DoxyCodeLine{383     \{}
+\DoxyCodeLine{384         lJulianDay++;}
+\DoxyCodeLine{385         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{386     \}}
+\DoxyCodeLine{387     \mbox{\hyperlink{class_date}{Date}} operator++(\textcolor{keywordtype}{int})}
+\DoxyCodeLine{388     \{}
+\DoxyCodeLine{389         \mbox{\hyperlink{class_date}{Date}} Temp = *\textcolor{keyword}{this};}
+\DoxyCodeLine{390         lJulianDay++;}
+\DoxyCodeLine{391         \textcolor{keywordflow}{return} Temp;}
+\DoxyCodeLine{392     \}}
+\DoxyCodeLine{393     \mbox{\hyperlink{class_date}{Date}} \&operator-\/-\/()}
+\DoxyCodeLine{394     \{}
+\DoxyCodeLine{395         lJulianDay-\/-\/;}
+\DoxyCodeLine{396         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{397     \}}
+\DoxyCodeLine{398     \mbox{\hyperlink{class_date}{Date}} operator-\/-\/(\textcolor{keywordtype}{int})}
+\DoxyCodeLine{399     \{}
+\DoxyCodeLine{400         \mbox{\hyperlink{class_date}{Date}} Temp = *\textcolor{keyword}{this};}
+\DoxyCodeLine{401         lJulianDay-\/-\/;}
+\DoxyCodeLine{402         \textcolor{keywordflow}{return} Temp;}
+\DoxyCodeLine{403     \}}
+\DoxyCodeLine{404 }
+\DoxyCodeLine{405     \textcolor{comment}{// Function      : to\_string}}
+\DoxyCodeLine{406     \textcolor{comment}{// Author        : Paul Wolfgang}}
+\DoxyCodeLine{407     \textcolor{comment}{//}}
+\DoxyCodeLine{408     \textcolor{comment}{// Creation date : 17 Feb 2006}}
+\DoxyCodeLine{409     \textcolor{comment}{//}}
+\DoxyCodeLine{410     \textcolor{comment}{// Parameters    : none}}
+\DoxyCodeLine{411     \textcolor{comment}{//}}
+\DoxyCodeLine{412     \textcolor{comment}{// Return value  : std::string}}
+\DoxyCodeLine{413     \textcolor{comment}{//}}
+\DoxyCodeLine{414     \textcolor{comment}{// Formats the Date into an ASCII representation.}}
+\DoxyCodeLine{415     \textcolor{comment}{// This is in the form yyyy-\/mm-\/dd}}
+\DoxyCodeLine{416     \textcolor{comment}{//}}
+\DoxyCodeLine{417     \textcolor{comment}{//}}
+\DoxyCodeLine{418     std::string to\_string() \textcolor{keyword}{const};}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{420     \textcolor{comment}{// Function      : comparison operators}}
+\DoxyCodeLine{421     \textcolor{comment}{//}}
+\DoxyCodeLine{422     \textcolor{comment}{// Author        : Todd Knarr}}
+\DoxyCodeLine{423     \textcolor{comment}{//}}
+\DoxyCodeLine{424     \textcolor{comment}{// Creation date : 1 Dec 1995}}
+\DoxyCodeLine{425     \textcolor{comment}{//}}
+\DoxyCodeLine{426     \textcolor{comment}{// Parameters    :}}
+\DoxyCodeLine{427     \textcolor{comment}{//}}
+\DoxyCodeLine{428     \textcolor{comment}{// Return values : non-\/zero if the comparison succeeds}}
+\DoxyCodeLine{429     \textcolor{comment}{//                 0 if it fails}}
+\DoxyCodeLine{430     \textcolor{comment}{//}}
+\DoxyCodeLine{431     \textcolor{keywordtype}{int} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{class_date}{Date}} \&Right)\textcolor{keyword}{ const}}
+\DoxyCodeLine{432 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{433         \textcolor{keywordflow}{return} lJulianDay == Right.lJulianDay;}
+\DoxyCodeLine{434     \}}
+\DoxyCodeLine{435     \textcolor{keywordtype}{int} operator!=(\textcolor{keyword}{const} \mbox{\hyperlink{class_date}{Date}} \&Right)\textcolor{keyword}{ const}}
+\DoxyCodeLine{436 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{437         \textcolor{keywordflow}{return} lJulianDay != Right.lJulianDay;}
+\DoxyCodeLine{438     \}}
+\DoxyCodeLine{439     \textcolor{keywordtype}{int} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{class_date}{Date}} \&Right)\textcolor{keyword}{ const}}
+\DoxyCodeLine{440 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{441         \textcolor{keywordflow}{return} lJulianDay < Right.lJulianDay;}
+\DoxyCodeLine{442     \}}
+\DoxyCodeLine{443     \textcolor{keywordtype}{int} operator<=(\textcolor{keyword}{const} \mbox{\hyperlink{class_date}{Date}} \&Right)\textcolor{keyword}{ const}}
+\DoxyCodeLine{444 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{445         \textcolor{keywordflow}{return} lJulianDay <= Right.lJulianDay;}
+\DoxyCodeLine{446     \}}
+\DoxyCodeLine{447     \textcolor{keywordtype}{int} operator>(\textcolor{keyword}{const} \mbox{\hyperlink{class_date}{Date}} \&Right)\textcolor{keyword}{ const}}
+\DoxyCodeLine{448 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{449         \textcolor{keywordflow}{return} lJulianDay > Right.lJulianDay;}
+\DoxyCodeLine{450     \}}
+\DoxyCodeLine{451     \textcolor{keywordtype}{int} operator>=(\textcolor{keyword}{const} \mbox{\hyperlink{class_date}{Date}} \&Right)\textcolor{keyword}{ const}}
+\DoxyCodeLine{452 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{453         \textcolor{keywordflow}{return} lJulianDay >= Right.lJulianDay;}
+\DoxyCodeLine{454     \}}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{456     \textcolor{comment}{//}}
+\DoxyCodeLine{457     \textcolor{comment}{// Function      : ToSysTime}}
+\DoxyCodeLine{458     \textcolor{comment}{//}}
+\DoxyCodeLine{459     \textcolor{comment}{// Author        : Todd Knarr}}
+\DoxyCodeLine{460     \textcolor{comment}{//}}
+\DoxyCodeLine{461     \textcolor{comment}{// Creation date : 29 Nov 1995}}
+\DoxyCodeLine{462     \textcolor{comment}{//}}
+\DoxyCodeLine{463     \textcolor{comment}{// Parameters    : none}}
+\DoxyCodeLine{464     \textcolor{comment}{//}}
+\DoxyCodeLine{465     \textcolor{comment}{// Return values : converted result}}
+\DoxyCodeLine{466     \textcolor{comment}{//}}
+\DoxyCodeLine{467     \textcolor{comment}{// Description   :}}
+\DoxyCodeLine{468     \textcolor{comment}{//}}
+\DoxyCodeLine{469     \textcolor{comment}{// Converts the date to a time\_t value}}
+\DoxyCodeLine{470     \textcolor{comment}{// representing midnight of that date.}}
+\DoxyCodeLine{471     \textcolor{comment}{//}}
+\DoxyCodeLine{472     time\_t ToSysTime(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{473 }
+\DoxyCodeLine{474     \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{class_date}{Date}} \&);}
+\DoxyCodeLine{475     \textcolor{keyword}{friend} std::istream \&operator>>(std::istream \&, \mbox{\hyperlink{class_date}{Date}} \&);}
+\DoxyCodeLine{476 \};}
+\DoxyCodeLine{477 }
+\DoxyCodeLine{478 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

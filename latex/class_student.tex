@@ -1,0 +1,154 @@
+\hypertarget{class_student}{}\doxysection{Student Class Reference}
+\label{class_student}\index{Student@{Student}}
+
+
+Represents a student customer in the banking system.  
+
+
+
+
+{\ttfamily \#include $<$Student.\+h$>$}
+
+Inheritance diagram for Student\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_student}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_student_ab30e334cc95398bc59c50896e95dc4fe}{Student}} (string name, string address, int age, long long telephone\+Number)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{class_student}{Student}} object. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_student_a479b0dba5386c4bd0f83c18089bca46d}{get\+Savings\+Interest}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the savings interest for student customers. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_student_a662b25e8d73c1ca9cb69802b2af3f25b}{get\+Checking\+Interest}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the checking interest for student customers. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_student_a8325a17e548c8a338c36c4f9856e1143}{get\+Checking\+Charge}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the checking charge for student customers. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_student_a7eae8dcf07e6c15fd10a624ba446af03}{get\+Overdraft\+Penalty}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the overdraft penalty for student customers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_student_a0a49bc5bb471ddf60a3c44db719acb1e}\label{class_student_a0a49bc5bb471ddf60a3c44db719acb1e}} 
+static const double {\bfseries SAVINGS\+\_\+\+INTEREST} = 0.\+04
+\begin{DoxyCompactList}\small\item\em Constant for the savings interest applicable to student customers. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_a3b6d5161ed21c04e907beee43c5d42c8}\label{class_student_a3b6d5161ed21c04e907beee43c5d42c8}} 
+static const double {\bfseries CHECK\+\_\+\+INTEREST} = 0.\+01
+\begin{DoxyCompactList}\small\item\em Constant for the check interest applicable to student customers. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_ad0e8198490ad5ed3f1d9493c4945b7b3}\label{class_student_ad0e8198490ad5ed3f1d9493c4945b7b3}} 
+static const double {\bfseries CHECK\+\_\+\+CHARGE} = 0.\+02
+\begin{DoxyCompactList}\small\item\em Constant for the check charge applicable to student customers. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_aa441b9f402ccd240a91f3b16880078da}\label{class_student_aa441b9f402ccd240a91f3b16880078da}} 
+static const double {\bfseries OVERDRAFT\+\_\+\+PENALTY} = 25
+\begin{DoxyCompactList}\small\item\em Constant for the overdraft penalty applicable to student customers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents a student customer in the banking system. 
+
+This class is a derivative of the \mbox{\hyperlink{class_customer}{Customer}} class, holding information and operations that are specific to student customers. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_student_ab30e334cc95398bc59c50896e95dc4fe}\label{class_student_ab30e334cc95398bc59c50896e95dc4fe}} 
+\index{Student@{Student}!Student@{Student}}
+\index{Student@{Student}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{Student()}{Student()}}
+{\footnotesize\ttfamily Student\+::\+Student (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{address,  }\item[{int}]{age,  }\item[{long long}]{telephone\+Number }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{class_student}{Student}} object. 
+
+Initializes a new student customer with the given details.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the student customer. \\
+\hline
+{\em address} & The address of the student customer. \\
+\hline
+{\em age} & The age of the student customer. \\
+\hline
+{\em telephone\+Number} & The telephone number of the student customer. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_student_a8325a17e548c8a338c36c4f9856e1143}\label{class_student_a8325a17e548c8a338c36c4f9856e1143}} 
+\index{Student@{Student}!getCheckingCharge@{getCheckingCharge}}
+\index{getCheckingCharge@{getCheckingCharge}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{getCheckingCharge()}{getCheckingCharge()}}
+{\footnotesize\ttfamily double Student\+::get\+Checking\+Charge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retrieves the checking charge for student customers. 
+
+\begin{DoxyReturn}{Returns}
+The checking charge amount. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_customer}{Customer}}.
+
+\mbox{\Hypertarget{class_student_a662b25e8d73c1ca9cb69802b2af3f25b}\label{class_student_a662b25e8d73c1ca9cb69802b2af3f25b}} 
+\index{Student@{Student}!getCheckingInterest@{getCheckingInterest}}
+\index{getCheckingInterest@{getCheckingInterest}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{getCheckingInterest()}{getCheckingInterest()}}
+{\footnotesize\ttfamily double Student\+::get\+Checking\+Interest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retrieves the checking interest for student customers. 
+
+\begin{DoxyReturn}{Returns}
+The checking interest rate. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_customer}{Customer}}.
+
+\mbox{\Hypertarget{class_student_a7eae8dcf07e6c15fd10a624ba446af03}\label{class_student_a7eae8dcf07e6c15fd10a624ba446af03}} 
+\index{Student@{Student}!getOverdraftPenalty@{getOverdraftPenalty}}
+\index{getOverdraftPenalty@{getOverdraftPenalty}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{getOverdraftPenalty()}{getOverdraftPenalty()}}
+{\footnotesize\ttfamily double Student\+::get\+Overdraft\+Penalty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retrieves the overdraft penalty for student customers. 
+
+\begin{DoxyReturn}{Returns}
+The overdraft penalty amount. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_customer}{Customer}}.
+
+\mbox{\Hypertarget{class_student_a479b0dba5386c4bd0f83c18089bca46d}\label{class_student_a479b0dba5386c4bd0f83c18089bca46d}} 
+\index{Student@{Student}!getSavingsInterest@{getSavingsInterest}}
+\index{getSavingsInterest@{getSavingsInterest}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{getSavingsInterest()}{getSavingsInterest()}}
+{\footnotesize\ttfamily double Student\+::get\+Savings\+Interest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retrieves the savings interest for student customers. 
+
+\begin{DoxyReturn}{Returns}
+The savings interest rate. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_customer}{Customer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_student_8h}{Student.\+h}}\item 
+src/\mbox{\hyperlink{_student_8cpp}{Student.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,147 @@
+\hypertarget{class_customer}{}\doxysection{Customer Class Reference}
+\label{class_customer}\index{Customer@{Customer}}
+
+
+Represents a bank customer.  
+
+
+
+
+{\ttfamily \#include $<$Customer.\+h$>$}
+
+Inheritance diagram for Customer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_customer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_customer_abcc8fae9701e5ba9d7d6fe44498b34e3}\label{class_customer_abcc8fae9701e5ba9d7d6fe44498b34e3}} 
+{\bfseries Customer} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_customer_a59d3ed091c263c3fcac54eb714c261a6}{Customer}} (string name, string address, int age, long long telephone\+Number)
+\begin{DoxyCompactList}\small\item\em Parameterized constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_customer_ac987a032179493e7a75b3dbdc32c1cf9}\label{class_customer_ac987a032179493e7a75b3dbdc32c1cf9}} 
+string {\bfseries get\+Name} () const
+\item 
+\mbox{\Hypertarget{class_customer_a74d70c3fa46efde969fe42fc99f7cf6a}\label{class_customer_a74d70c3fa46efde969fe42fc99f7cf6a}} 
+string {\bfseries get\+Address} () const
+\item 
+\mbox{\Hypertarget{class_customer_a69d0e3addd992bfcf5b430b223e02d75}\label{class_customer_a69d0e3addd992bfcf5b430b223e02d75}} 
+int {\bfseries get\+Age} () const
+\item 
+\mbox{\Hypertarget{class_customer_a0f3040401df0df485adc19b87683d887}\label{class_customer_a0f3040401df0df485adc19b87683d887}} 
+long long {\bfseries get\+Telephone\+Number} () const
+\item 
+\mbox{\Hypertarget{class_customer_a2b66adb98e79ba50c59693286a1016bc}\label{class_customer_a2b66adb98e79ba50c59693286a1016bc}} 
+string {\bfseries get\+Customer\+Type} ()
+\item 
+\mbox{\Hypertarget{class_customer_a352bce81fc031be78ca42fab9731ff41}\label{class_customer_a352bce81fc031be78ca42fab9731ff41}} 
+void {\bfseries set\+Customer\+Number} (int number)
+\item 
+\mbox{\Hypertarget{class_customer_a1e7a73345aa3d1bedc1c133f6c72b497}\label{class_customer_a1e7a73345aa3d1bedc1c133f6c72b497}} 
+void {\bfseries set\+Name} (const string \&name)
+\item 
+\mbox{\Hypertarget{class_customer_ab6c9847bb8038c511afc489a5de0e0ba}\label{class_customer_ab6c9847bb8038c511afc489a5de0e0ba}} 
+void {\bfseries set\+Address} (const string \&address)
+\item 
+\mbox{\Hypertarget{class_customer_a7cd8c6b44a2f36c2990f39a22db6cf6e}\label{class_customer_a7cd8c6b44a2f36c2990f39a22db6cf6e}} 
+void {\bfseries set\+Age} (int age)
+\item 
+\mbox{\Hypertarget{class_customer_abc6cd3632fa2b2559ce8416b5b0b5264}\label{class_customer_abc6cd3632fa2b2559ce8416b5b0b5264}} 
+void {\bfseries set\+Telephone\+Number} (long long telephone\+Number)
+\item 
+virtual double \mbox{\hyperlink{class_customer_aa362d5393f68fdc962664be794d51339}{get\+Savings\+Interest}} ()=0
+\item 
+virtual double \mbox{\hyperlink{class_customer_a56378122b435e5ae08766c05bcfd49b4}{get\+Checking\+Interest}} ()=0
+\item 
+virtual double \mbox{\hyperlink{class_customer_a497616c545cd925b5e03f314de592f35}{get\+Checking\+Charge}} ()=0
+\item 
+virtual double \mbox{\hyperlink{class_customer_ad39233a358bbf1d6f1974c2acb4cb4af}{get\+Overdraft\+Penalty}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_customer_a01acbcd598409e2296446936a52fbe0e}\label{class_customer_a01acbcd598409e2296446936a52fbe0e}} 
+string {\bfseries customer\+Type}
+\begin{DoxyCompactList}\small\item\em Type of the customer (e.\+g., regular, premium). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a bank customer. 
+
+This class provides the basic attributes and operations for a bank customer. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_customer_a59d3ed091c263c3fcac54eb714c261a6}\label{class_customer_a59d3ed091c263c3fcac54eb714c261a6}} 
+\index{Customer@{Customer}!Customer@{Customer}}
+\index{Customer@{Customer}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{Customer()}{Customer()}}
+{\footnotesize\ttfamily Customer\+::\+Customer (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{address,  }\item[{int}]{age,  }\item[{long long}]{telephone\+Number }\end{DoxyParamCaption})}
+
+
+
+Parameterized constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \mbox{\hyperlink{class_customer}{Customer}}\textquotesingle{}s name. \\
+\hline
+{\em address} & \mbox{\hyperlink{class_customer}{Customer}}\textquotesingle{}s address. \\
+\hline
+{\em age} & \mbox{\hyperlink{class_customer}{Customer}}\textquotesingle{}s age. \\
+\hline
+{\em telephone\+Number} & \mbox{\hyperlink{class_customer}{Customer}}\textquotesingle{}s telephone number. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_customer_a497616c545cd925b5e03f314de592f35}\label{class_customer_a497616c545cd925b5e03f314de592f35}} 
+\index{Customer@{Customer}!getCheckingCharge@{getCheckingCharge}}
+\index{getCheckingCharge@{getCheckingCharge}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{getCheckingCharge()}{getCheckingCharge()}}
+{\footnotesize\ttfamily virtual double Customer\+::get\+Checking\+Charge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_adult_ac4eb0de0e69874d5345c062d7321facc}{Adult}}, \mbox{\hyperlink{class_senior_a09f71eb8ee342e8385234f07bbae21a6}{Senior}}, and \mbox{\hyperlink{class_student_a8325a17e548c8a338c36c4f9856e1143}{Student}}.
+
+\mbox{\Hypertarget{class_customer_a56378122b435e5ae08766c05bcfd49b4}\label{class_customer_a56378122b435e5ae08766c05bcfd49b4}} 
+\index{Customer@{Customer}!getCheckingInterest@{getCheckingInterest}}
+\index{getCheckingInterest@{getCheckingInterest}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{getCheckingInterest()}{getCheckingInterest()}}
+{\footnotesize\ttfamily virtual double Customer\+::get\+Checking\+Interest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_adult_a32413831f55aa21db45e356e5b77235f}{Adult}}, \mbox{\hyperlink{class_senior_a7b01d9b2dcf25884e8c20bf1f7fea37c}{Senior}}, and \mbox{\hyperlink{class_student_a662b25e8d73c1ca9cb69802b2af3f25b}{Student}}.
+
+\mbox{\Hypertarget{class_customer_ad39233a358bbf1d6f1974c2acb4cb4af}\label{class_customer_ad39233a358bbf1d6f1974c2acb4cb4af}} 
+\index{Customer@{Customer}!getOverdraftPenalty@{getOverdraftPenalty}}
+\index{getOverdraftPenalty@{getOverdraftPenalty}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{getOverdraftPenalty()}{getOverdraftPenalty()}}
+{\footnotesize\ttfamily virtual double Customer\+::get\+Overdraft\+Penalty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_adult_a1fc8c963d5389b096d65a5ea4e2dd58f}{Adult}}, \mbox{\hyperlink{class_senior_a69bf0a371a15246cfbc3686c7b7e7bff}{Senior}}, and \mbox{\hyperlink{class_student_a7eae8dcf07e6c15fd10a624ba446af03}{Student}}.
+
+\mbox{\Hypertarget{class_customer_aa362d5393f68fdc962664be794d51339}\label{class_customer_aa362d5393f68fdc962664be794d51339}} 
+\index{Customer@{Customer}!getSavingsInterest@{getSavingsInterest}}
+\index{getSavingsInterest@{getSavingsInterest}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{getSavingsInterest()}{getSavingsInterest()}}
+{\footnotesize\ttfamily virtual double Customer\+::get\+Savings\+Interest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_adult_a27af6318143392c3cb1db349c0a16f36}{Adult}}, \mbox{\hyperlink{class_senior_a3e2ae535b73f0976248d8edb3365be0d}{Senior}}, and \mbox{\hyperlink{class_student_a479b0dba5386c4bd0f83c18089bca46d}{Student}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_customer_8h}{Customer.\+h}}\item 
+src/\mbox{\hyperlink{_customer_8cpp}{Customer.\+cpp}}\end{DoxyCompactItemize}

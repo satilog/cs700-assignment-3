@@ -1,0 +1,120 @@
+\hypertarget{class_checking_account}{}\doxysection{Checking\+Account Class Reference}
+\label{class_checking_account}\index{CheckingAccount@{CheckingAccount}}
+
+
+This class represents a checking account which is a type of account.  
+
+
+
+
+{\ttfamily \#include $<$Checking\+Account.\+h$>$}
+
+Inheritance diagram for Checking\+Account\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_checking_account}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_checking_account_abf662abe8436eadcbf4c983ff695135e}{Checking\+Account}} (\mbox{\hyperlink{class_customer}{Customer}} $\ast$\mbox{\hyperlink{class_account_a97c1f6fa553ef297fb952b2f901942cd}{customer}})
+\begin{DoxyCompactList}\small\item\em Constructor that initializes a new \mbox{\hyperlink{class_checking_account}{Checking\+Account}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_checking_account_ac02bb23eadf53dd51ca8dcc7201b644a}\label{class_checking_account_ac02bb23eadf53dd51ca8dcc7201b644a}} 
+virtual {\bfseries $\sim$\+Checking\+Account} ()
+\begin{DoxyCompactList}\small\item\em Destructor that cleans up the memory to prevent memory leaks. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_checking_account_a8bc0391d6b5da49766421595584ef45d}{deposit}} (double amount, \mbox{\hyperlink{class_date}{Date}} date)
+\begin{DoxyCompactList}\small\item\em Handles deposit transactions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_checking_account_a7f8a42fedfde56e3b24405ae7c72fbdd}{withdraw}} (double amount, \mbox{\hyperlink{class_date}{Date}} date)
+\begin{DoxyCompactList}\small\item\em Handles withdrawal transactions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_checking_account_aadd06a1cdb6620edc026dd417c2df212}{add\+Interest}} ()
+\begin{DoxyCompactList}\small\item\em Adds interest to the account balance based on the balance and the customer\textquotesingle{}s interest rate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+This class represents a checking account which is a type of account. 
+
+The class handles deposits, withdrawals, and adding interests for a checking account. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_checking_account_abf662abe8436eadcbf4c983ff695135e}\label{class_checking_account_abf662abe8436eadcbf4c983ff695135e}} 
+\index{CheckingAccount@{CheckingAccount}!CheckingAccount@{CheckingAccount}}
+\index{CheckingAccount@{CheckingAccount}!CheckingAccount@{CheckingAccount}}
+\doxysubsubsection{\texorpdfstring{CheckingAccount()}{CheckingAccount()}}
+{\footnotesize\ttfamily Checking\+Account\+::\+Checking\+Account (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_customer}{Customer}} $\ast$}]{customer }\end{DoxyParamCaption})}
+
+
+
+Constructor that initializes a new \mbox{\hyperlink{class_checking_account}{Checking\+Account}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & A pointer to the \mbox{\hyperlink{class_customer}{Customer}} object associated with this account. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_checking_account_aadd06a1cdb6620edc026dd417c2df212}\label{class_checking_account_aadd06a1cdb6620edc026dd417c2df212}} 
+\index{CheckingAccount@{CheckingAccount}!addInterest@{addInterest}}
+\index{addInterest@{addInterest}!CheckingAccount@{CheckingAccount}}
+\doxysubsubsection{\texorpdfstring{addInterest()}{addInterest()}}
+{\footnotesize\ttfamily void Checking\+Account\+::add\+Interest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Adds interest to the account balance based on the balance and the customer\textquotesingle{}s interest rate. 
+
+
+
+Implements \mbox{\hyperlink{class_account_a0c51f2cf12f00a819fff591f1e40747e}{Account}}.
+
+\mbox{\Hypertarget{class_checking_account_a8bc0391d6b5da49766421595584ef45d}\label{class_checking_account_a8bc0391d6b5da49766421595584ef45d}} 
+\index{CheckingAccount@{CheckingAccount}!deposit@{deposit}}
+\index{deposit@{deposit}!CheckingAccount@{CheckingAccount}}
+\doxysubsubsection{\texorpdfstring{deposit()}{deposit()}}
+{\footnotesize\ttfamily void Checking\+Account\+::deposit (\begin{DoxyParamCaption}\item[{double}]{amount,  }\item[{\mbox{\hyperlink{class_date}{Date}}}]{date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handles deposit transactions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The amount of money to be deposited. \\
+\hline
+{\em date} & The date when the deposit transaction is made. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_account_a83d70fd4302914c3b378bdef267adbae}{Account}}.
+
+\mbox{\Hypertarget{class_checking_account_a7f8a42fedfde56e3b24405ae7c72fbdd}\label{class_checking_account_a7f8a42fedfde56e3b24405ae7c72fbdd}} 
+\index{CheckingAccount@{CheckingAccount}!withdraw@{withdraw}}
+\index{withdraw@{withdraw}!CheckingAccount@{CheckingAccount}}
+\doxysubsubsection{\texorpdfstring{withdraw()}{withdraw()}}
+{\footnotesize\ttfamily void Checking\+Account\+::withdraw (\begin{DoxyParamCaption}\item[{double}]{amount,  }\item[{\mbox{\hyperlink{class_date}{Date}}}]{date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handles withdrawal transactions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The amount of money to be withdrawn. \\
+\hline
+{\em date} & The date when the withdrawal transaction is made. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_account_af5bdf4c5d86b506b858609d530ae20b1}{Account}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_checking_account_8h}{Checking\+Account.\+h}}\item 
+src/\mbox{\hyperlink{_checking_account_8cpp}{Checking\+Account.\+cpp}}\end{DoxyCompactItemize}

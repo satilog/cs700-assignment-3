@@ -1,0 +1,110 @@
+\hypertarget{class_bank}{}\doxysection{Bank Class Reference}
+\label{class_bank}\index{Bank@{Bank}}
+
+
+A class that represents a bank with multiple accounts.  
+
+
+
+
+{\ttfamily \#include $<$Bank.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_bank_a95972e189e85e1a572348811a8bf0d57}\label{class_bank_a95972e189e85e1a572348811a8bf0d57}} 
+{\bfseries Bank} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \mbox{\hyperlink{class_bank}{Bank}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bank_aaf67e0e70b7cf9b1b0ba96f0b52b4bea}{add\+Account}} (\mbox{\hyperlink{class_account}{Account}} $\ast$account)
+\begin{DoxyCompactList}\small\item\em Adds an account to the bank\textquotesingle{}s list of accounts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bank_aefd58aa8e06665dfdd8900f01f1749e0}{make\+Deposit}} (long long account\+Number, double amount, \mbox{\hyperlink{class_date}{Date}} date)
+\begin{DoxyCompactList}\small\item\em Deposits a given amount to a specified account. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bank_a1f6ea71589ab880d2a9d349d6f6f26c0}{make\+Withdrawal}} (long long account\+Number, double amount, \mbox{\hyperlink{class_date}{Date}} date)
+\begin{DoxyCompactList}\small\item\em Withdraws a given amount from a specified account. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_account}{Account}} $\ast$ \mbox{\hyperlink{class_bank_ab454b9efeb5978506b19aaa5d8af8e76}{get\+Account}} (long long account\+Number)
+\begin{DoxyCompactList}\small\item\em Retrieves a pointer to an account based on its number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that represents a bank with multiple accounts. 
+
+The \mbox{\hyperlink{class_bank}{Bank}} class provides functionality for adding accounts, making deposits, making withdrawals, and retrieving accounts by number. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bank_aaf67e0e70b7cf9b1b0ba96f0b52b4bea}\label{class_bank_aaf67e0e70b7cf9b1b0ba96f0b52b4bea}} 
+\index{Bank@{Bank}!addAccount@{addAccount}}
+\index{addAccount@{addAccount}!Bank@{Bank}}
+\doxysubsubsection{\texorpdfstring{addAccount()}{addAccount()}}
+{\footnotesize\ttfamily void Bank\+::add\+Account (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_account}{Account}} $\ast$}]{account }\end{DoxyParamCaption})}
+
+
+
+Adds an account to the bank\textquotesingle{}s list of accounts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em account} & Pointer to the account to be added. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_bank_ab454b9efeb5978506b19aaa5d8af8e76}\label{class_bank_ab454b9efeb5978506b19aaa5d8af8e76}} 
+\index{Bank@{Bank}!getAccount@{getAccount}}
+\index{getAccount@{getAccount}!Bank@{Bank}}
+\doxysubsubsection{\texorpdfstring{getAccount()}{getAccount()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_account}{Account}} $\ast$ Bank\+::get\+Account (\begin{DoxyParamCaption}\item[{long long}]{account\+Number }\end{DoxyParamCaption})}
+
+
+
+Retrieves a pointer to an account based on its number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em account\+Number} & The number of the account to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the \mbox{\hyperlink{class_account}{Account}} object, or nullptr if not found. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_bank_aefd58aa8e06665dfdd8900f01f1749e0}\label{class_bank_aefd58aa8e06665dfdd8900f01f1749e0}} 
+\index{Bank@{Bank}!makeDeposit@{makeDeposit}}
+\index{makeDeposit@{makeDeposit}!Bank@{Bank}}
+\doxysubsubsection{\texorpdfstring{makeDeposit()}{makeDeposit()}}
+{\footnotesize\ttfamily void Bank\+::make\+Deposit (\begin{DoxyParamCaption}\item[{long long}]{account\+Number,  }\item[{double}]{amount,  }\item[{\mbox{\hyperlink{class_date}{Date}}}]{date }\end{DoxyParamCaption})}
+
+
+
+Deposits a given amount to a specified account. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em account\+Number} & The number of the account to deposit to. \\
+\hline
+{\em amount} & The amount to deposit. \\
+\hline
+{\em date} & The date of the deposit. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_bank_a1f6ea71589ab880d2a9d349d6f6f26c0}\label{class_bank_a1f6ea71589ab880d2a9d349d6f6f26c0}} 
+\index{Bank@{Bank}!makeWithdrawal@{makeWithdrawal}}
+\index{makeWithdrawal@{makeWithdrawal}!Bank@{Bank}}
+\doxysubsubsection{\texorpdfstring{makeWithdrawal()}{makeWithdrawal()}}
+{\footnotesize\ttfamily void Bank\+::make\+Withdrawal (\begin{DoxyParamCaption}\item[{long long}]{account\+Number,  }\item[{double}]{amount,  }\item[{\mbox{\hyperlink{class_date}{Date}}}]{date }\end{DoxyParamCaption})}
+
+
+
+Withdraws a given amount from a specified account. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em account\+Number} & The number of the account to withdraw from. \\
+\hline
+{\em amount} & The amount to withdraw. \\
+\hline
+{\em date} & The date of the withdrawal. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_bank_8h}{Bank.\+h}}\item 
+src/\mbox{\hyperlink{_bank_8cpp}{Bank.\+cpp}}\end{DoxyCompactItemize}

@@ -68,5 +68,5 @@ int main()
             break;
         }
     }
-    return;
+    return 1;
 };

@@ -1,0 +1,118 @@
+\hypertarget{class_savings_account}{}\doxysection{Savings\+Account Class Reference}
+\label{class_savings_account}\index{SavingsAccount@{SavingsAccount}}
+
+
+A class to represent a savings account derived from \mbox{\hyperlink{class_account}{Account}} class.  
+
+
+
+
+{\ttfamily \#include $<$Savings\+Account.\+h$>$}
+
+Inheritance diagram for Savings\+Account\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_savings_account}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_savings_account_afe90bdf0e5446d3d49904f33fbf9723e}{Savings\+Account}} (\mbox{\hyperlink{class_customer}{Customer}} $\ast$\mbox{\hyperlink{class_account_a97c1f6fa553ef297fb952b2f901942cd}{customer}})
+\begin{DoxyCompactList}\small\item\em Construct a new Savings \mbox{\hyperlink{class_account}{Account}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_savings_account_a80d8c75090654645a457ca9e9daf2974}\label{class_savings_account_a80d8c75090654645a457ca9e9daf2974}} 
+virtual {\bfseries $\sim$\+Savings\+Account} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Savings \mbox{\hyperlink{class_account}{Account}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_savings_account_abccb50c2c4cce3158f08fb920966f378}{deposit}} (double amount, \mbox{\hyperlink{class_date}{Date}} date)
+\begin{DoxyCompactList}\small\item\em Perform deposit operation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_savings_account_a3d3406cea228632c49a75de7c6a44e08}{withdraw}} (double amount, \mbox{\hyperlink{class_date}{Date}} date)
+\begin{DoxyCompactList}\small\item\em Perform withdrawal operation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_savings_account_ae2ad4b0e8b7287b1d2d39476ae5dc893}{add\+Interest}} ()
+\begin{DoxyCompactList}\small\item\em Add interest to the savings account based on the balance and time since last interest addition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A class to represent a savings account derived from \mbox{\hyperlink{class_account}{Account}} class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_savings_account_afe90bdf0e5446d3d49904f33fbf9723e}\label{class_savings_account_afe90bdf0e5446d3d49904f33fbf9723e}} 
+\index{SavingsAccount@{SavingsAccount}!SavingsAccount@{SavingsAccount}}
+\index{SavingsAccount@{SavingsAccount}!SavingsAccount@{SavingsAccount}}
+\doxysubsubsection{\texorpdfstring{SavingsAccount()}{SavingsAccount()}}
+{\footnotesize\ttfamily Savings\+Account\+::\+Savings\+Account (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_customer}{Customer}} $\ast$}]{customer }\end{DoxyParamCaption})}
+
+
+
+Construct a new Savings \mbox{\hyperlink{class_account}{Account}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & Pointer to the \mbox{\hyperlink{class_customer}{Customer}} object associated with this account. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_savings_account_ae2ad4b0e8b7287b1d2d39476ae5dc893}\label{class_savings_account_ae2ad4b0e8b7287b1d2d39476ae5dc893}} 
+\index{SavingsAccount@{SavingsAccount}!addInterest@{addInterest}}
+\index{addInterest@{addInterest}!SavingsAccount@{SavingsAccount}}
+\doxysubsubsection{\texorpdfstring{addInterest()}{addInterest()}}
+{\footnotesize\ttfamily void Savings\+Account\+::add\+Interest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Add interest to the savings account based on the balance and time since last interest addition. 
+
+
+
+Implements \mbox{\hyperlink{class_account_a0c51f2cf12f00a819fff591f1e40747e}{Account}}.
+
+\mbox{\Hypertarget{class_savings_account_abccb50c2c4cce3158f08fb920966f378}\label{class_savings_account_abccb50c2c4cce3158f08fb920966f378}} 
+\index{SavingsAccount@{SavingsAccount}!deposit@{deposit}}
+\index{deposit@{deposit}!SavingsAccount@{SavingsAccount}}
+\doxysubsubsection{\texorpdfstring{deposit()}{deposit()}}
+{\footnotesize\ttfamily void Savings\+Account\+::deposit (\begin{DoxyParamCaption}\item[{double}]{amount,  }\item[{\mbox{\hyperlink{class_date}{Date}}}]{date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Perform deposit operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The amount of money to deposit. \\
+\hline
+{\em date} & The date of deposit. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_account_a83d70fd4302914c3b378bdef267adbae}{Account}}.
+
+\mbox{\Hypertarget{class_savings_account_a3d3406cea228632c49a75de7c6a44e08}\label{class_savings_account_a3d3406cea228632c49a75de7c6a44e08}} 
+\index{SavingsAccount@{SavingsAccount}!withdraw@{withdraw}}
+\index{withdraw@{withdraw}!SavingsAccount@{SavingsAccount}}
+\doxysubsubsection{\texorpdfstring{withdraw()}{withdraw()}}
+{\footnotesize\ttfamily void Savings\+Account\+::withdraw (\begin{DoxyParamCaption}\item[{double}]{amount,  }\item[{\mbox{\hyperlink{class_date}{Date}}}]{date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Perform withdrawal operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The amount of money to withdraw. \\
+\hline
+{\em date} & The date of withdrawal. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_account_af5bdf4c5d86b506b858609d530ae20b1}{Account}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_savings_account_8h}{Savings\+Account.\+h}}\item 
+src/\mbox{\hyperlink{_savings_account_8cpp}{Savings\+Account.\+cpp}}\end{DoxyCompactItemize}

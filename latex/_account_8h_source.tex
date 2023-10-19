@@ -1,0 +1,62 @@
+\hypertarget{_account_8h_source}{}\doxysection{Account.\+h}
+\label{_account_8h_source}\index{include/Account.h@{include/Account.h}}
+\mbox{\hyperlink{_account_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ACCOUNT\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ACCOUNT\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}Helpers/Date.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_customer_8h}{Customer.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_transaction_8h}{Transaction.h}}"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_account}{Account}}}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_customer}{Customer}}* \mbox{\hyperlink{class_account_a97c1f6fa553ef297fb952b2f901942cd}{customer}}; }
+\DoxyCodeLine{29     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_account_a92e2552bc9214e93070df37a483fcc1a}{accountNumber}}; }
+\DoxyCodeLine{30     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_account_a6e41f403b4813738ba835377f212de33}{balance}}; }
+\DoxyCodeLine{31     vector<Transaction*> \mbox{\hyperlink{class_account_a69e370ee070dab047e03d3df7cc78e01}{transactions}}; }
+\DoxyCodeLine{32     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_account_a9ba3bc88392060d845b8bb383a25955e}{accountType}}; }
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{public}:}
+\DoxyCodeLine{39     \mbox{\hyperlink{class_account_afcbb4ba4b430c16d3c469dbdf080ee0f}{Account}}(\mbox{\hyperlink{class_customer}{Customer}}* \mbox{\hyperlink{class_account_a97c1f6fa553ef297fb952b2f901942cd}{customer}});}
+\DoxyCodeLine{40     }
+\DoxyCodeLine{44     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_account_a569c9ef0e42b9157690b4ceb646daba8}{\string~Account}}();}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_account_ab2932be30c5c6dd2caf18743a3d26cf7}{createAccount}}(\mbox{\hyperlink{class_customer}{Customer}}* \mbox{\hyperlink{class_account_a97c1f6fa553ef297fb952b2f901942cd}{customer}});}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_account_a7c7398a27c095625fbca51ab5063fe2d}{getAccounNumber}}();}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_account_a60839724cf983feea4546148ceabcc5f}{getBalance}}();}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{68     \mbox{\hyperlink{class_customer}{Customer}}* \mbox{\hyperlink{class_account_a86f9669bf4adcb8002685b18ba5454fe}{getCustomer}}();}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{74     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_account_a8f76009f9f13ed9046e4d40f3280235b}{getAccountType}}();}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{80     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_account_a08d1cdb1e5dd448a190df6da660b0b3a}{setBalance}}(\textcolor{keywordtype}{double} newBalance);}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_account_ad207fa11b45fc2ad2c3fcbb88d664747}{setCustomer}}(\mbox{\hyperlink{class_customer}{Customer}}* \mbox{\hyperlink{class_account_a97c1f6fa553ef297fb952b2f901942cd}{customer}});}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_account_a7468d38e992e46605ef8f9d41fa755e7}{deductCheckCharge}}();}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{97     \mbox{\hyperlink{class_date}{Date}} \mbox{\hyperlink{class_account_a5155397a3e11ee759bb1a75ed70e0fb7}{getLastTransactionDate}}();}
+\DoxyCodeLine{98     }
+\DoxyCodeLine{104     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_account_a83d70fd4302914c3b378bdef267adbae}{deposit}}(\textcolor{keywordtype}{double} amount, \mbox{\hyperlink{class_date}{Date}} date) = 0;}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{111     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_account_af5bdf4c5d86b506b858609d530ae20b1}{withdraw}}(\textcolor{keywordtype}{double} amount, \mbox{\hyperlink{class_date}{Date}} date) = 0;}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{116     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_account_a0c51f2cf12f00a819fff591f1e40747e}{addInterest}}() = 0;}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{122     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_account_a6075f3e87071b8608e5571780273f310}{toString}}();}
+\DoxyCodeLine{123 \};}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

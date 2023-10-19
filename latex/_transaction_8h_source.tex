@@ -1,0 +1,35 @@
+\hypertarget{_transaction_8h_source}{}\doxysection{Transaction.\+h}
+\label{_transaction_8h_source}\index{include/Transaction.h@{include/Transaction.h}}
+\mbox{\hyperlink{_transaction_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#ifndef TRANSACTION\_H}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define TRANSACTION\_H}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}Helpers/Date.h"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_transaction}{Transaction}}}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29 \textcolor{keyword}{private}:}
+\DoxyCodeLine{30     \textcolor{keywordtype}{string} transactionType; }
+\DoxyCodeLine{31     \textcolor{keywordtype}{double} amount;          }
+\DoxyCodeLine{32     \textcolor{keywordtype}{double} balance;         }
+\DoxyCodeLine{33     \mbox{\hyperlink{class_date}{Date}} date;              }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{public}:}
+\DoxyCodeLine{47     \mbox{\hyperlink{class_transaction_a1b7e10c0abe7e8cbbfaac204c89bd35c}{Transaction}}(\textcolor{keywordtype}{string} transactionType, \textcolor{keywordtype}{double} amount, \textcolor{keywordtype}{double} previousBalance, \mbox{\hyperlink{class_date}{Date}} date);}
+\DoxyCodeLine{48     }
+\DoxyCodeLine{54     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_transaction_ae64c03791911564fead30c19cfd877ea}{getTransactionType}}();}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{61     \mbox{\hyperlink{class_date}{Date}} \mbox{\hyperlink{class_transaction_ad168c832b6a24dbd25a91aa19c07a3fc}{getDate}}();}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_transaction_a41993d9cc801028242eeac331e7e1ff5}{toString}}();}
+\DoxyCodeLine{71 \};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

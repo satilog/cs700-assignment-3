@@ -1,0 +1,159 @@
+\hypertarget{class_senior}{}\doxysection{Senior Class Reference}
+\label{class_senior}\index{Senior@{Senior}}
+
+
+A derived class from \mbox{\hyperlink{class_customer}{Customer}} representing a senior customer.  
+
+
+
+
+{\ttfamily \#include $<$Senior.\+h$>$}
+
+Inheritance diagram for Senior\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_senior}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_senior_a1172e61bef1471e50bba89b3f0e14fd6}{Senior}} (string name, string address, int age, long long telephone\+Number)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{class_senior}{Senior}} customer object. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_senior_a3e2ae535b73f0976248d8edb3365be0d}{get\+Savings\+Interest}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the interest rate for the savings account. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_senior_a7b01d9b2dcf25884e8c20bf1f7fea37c}{get\+Checking\+Interest}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the interest rate for the checking account. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_senior_a09f71eb8ee342e8385234f07bbae21a6}{get\+Checking\+Charge}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the charge applied on the checking account. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_senior_a69bf0a371a15246cfbc3686c7b7e7bff}{get\+Overdraft\+Penalty}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the penalty incurred due to an overdraft. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_senior_ae6683351e20e866e76f69e38eec2fb56}\label{class_senior_ae6683351e20e866e76f69e38eec2fb56}} 
+static const double {\bfseries SAVINGS\+\_\+\+INTEREST} = 0.\+04
+\begin{DoxyCompactList}\small\item\em The interest rate for the savings account. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_senior_aea1ba3abde89bec64e5a8ad9ec005491}\label{class_senior_aea1ba3abde89bec64e5a8ad9ec005491}} 
+static const double {\bfseries CHECK\+\_\+\+INTEREST} = 0.\+01
+\begin{DoxyCompactList}\small\item\em The interest rate for the checking account. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_senior_aad7912f1f048f4f076e8afdaf4bb8cb6}\label{class_senior_aad7912f1f048f4f076e8afdaf4bb8cb6}} 
+static const double {\bfseries CHECK\+\_\+\+CHARGE} = 0.\+01
+\begin{DoxyCompactList}\small\item\em The charge applied on the checking account. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_senior_ac33a883a501a74b22a5370cae3ed6f45}\label{class_senior_ac33a883a501a74b22a5370cae3ed6f45}} 
+static const double {\bfseries OVERDRAFT\+\_\+\+PENALTY} = 25
+\begin{DoxyCompactList}\small\item\em The penalty incurred due to an overdraft. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A derived class from \mbox{\hyperlink{class_customer}{Customer}} representing a senior customer. 
+
+This class holds information specific to senior customers, including their savings and checking account interests, check charges, and overdraft penalties.
+
+\begin{DoxyAuthor}{Author}
+Sathyajit Loganathan 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_senior_a1172e61bef1471e50bba89b3f0e14fd6}\label{class_senior_a1172e61bef1471e50bba89b3f0e14fd6}} 
+\index{Senior@{Senior}!Senior@{Senior}}
+\index{Senior@{Senior}!Senior@{Senior}}
+\doxysubsubsection{\texorpdfstring{Senior()}{Senior()}}
+{\footnotesize\ttfamily Senior\+::\+Senior (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{address,  }\item[{int}]{age,  }\item[{long long}]{telephone\+Number }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{class_senior}{Senior}} customer object. 
+
+Initializes the \mbox{\hyperlink{class_senior}{Senior}} customer with a name, address, age, and telephone number.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the senior customer. \\
+\hline
+{\em address} & The address of the senior customer. \\
+\hline
+{\em age} & The age of the senior customer. \\
+\hline
+{\em telephone\+Number} & The telephone number of the senior customer. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_senior_a09f71eb8ee342e8385234f07bbae21a6}\label{class_senior_a09f71eb8ee342e8385234f07bbae21a6}} 
+\index{Senior@{Senior}!getCheckingCharge@{getCheckingCharge}}
+\index{getCheckingCharge@{getCheckingCharge}!Senior@{Senior}}
+\doxysubsubsection{\texorpdfstring{getCheckingCharge()}{getCheckingCharge()}}
+{\footnotesize\ttfamily double Senior\+::get\+Checking\+Charge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retrieves the charge applied on the checking account. 
+
+\begin{DoxyReturn}{Returns}
+The checking charge. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_customer}{Customer}}.
+
+\mbox{\Hypertarget{class_senior_a7b01d9b2dcf25884e8c20bf1f7fea37c}\label{class_senior_a7b01d9b2dcf25884e8c20bf1f7fea37c}} 
+\index{Senior@{Senior}!getCheckingInterest@{getCheckingInterest}}
+\index{getCheckingInterest@{getCheckingInterest}!Senior@{Senior}}
+\doxysubsubsection{\texorpdfstring{getCheckingInterest()}{getCheckingInterest()}}
+{\footnotesize\ttfamily double Senior\+::get\+Checking\+Interest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retrieves the interest rate for the checking account. 
+
+\begin{DoxyReturn}{Returns}
+The checking interest rate. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_customer}{Customer}}.
+
+\mbox{\Hypertarget{class_senior_a69bf0a371a15246cfbc3686c7b7e7bff}\label{class_senior_a69bf0a371a15246cfbc3686c7b7e7bff}} 
+\index{Senior@{Senior}!getOverdraftPenalty@{getOverdraftPenalty}}
+\index{getOverdraftPenalty@{getOverdraftPenalty}!Senior@{Senior}}
+\doxysubsubsection{\texorpdfstring{getOverdraftPenalty()}{getOverdraftPenalty()}}
+{\footnotesize\ttfamily double Senior\+::get\+Overdraft\+Penalty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retrieves the penalty incurred due to an overdraft. 
+
+\begin{DoxyReturn}{Returns}
+The overdraft penalty. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_customer}{Customer}}.
+
+\mbox{\Hypertarget{class_senior_a3e2ae535b73f0976248d8edb3365be0d}\label{class_senior_a3e2ae535b73f0976248d8edb3365be0d}} 
+\index{Senior@{Senior}!getSavingsInterest@{getSavingsInterest}}
+\index{getSavingsInterest@{getSavingsInterest}!Senior@{Senior}}
+\doxysubsubsection{\texorpdfstring{getSavingsInterest()}{getSavingsInterest()}}
+{\footnotesize\ttfamily double Senior\+::get\+Savings\+Interest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retrieves the interest rate for the savings account. 
+
+\begin{DoxyReturn}{Returns}
+The savings interest rate. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_customer}{Customer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Senior.\+h\item 
+src/\mbox{\hyperlink{_senior_8cpp}{Senior.\+cpp}}\end{DoxyCompactItemize}

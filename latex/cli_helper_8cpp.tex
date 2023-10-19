@@ -1,0 +1,133 @@
+\hypertarget{cli_helper_8cpp}{}\doxysection{src/\+Helpers/cli\+Helper.cpp File Reference}
+\label{cli_helper_8cpp}\index{src/Helpers/cliHelper.cpp@{src/Helpers/cliHelper.cpp}}
+
+
+Source file containing the implementations of the helper functions for the CLI interface.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include \char`\"{}Bank.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Account.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Checking\+Account.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Savings\+Account.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Student.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Senior.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Adult.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Helpers/cli\+Helper.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{cli_helper_8cpp_a25406d772ea0073faa927bf6eaa77236}\label{cli_helper_8cpp_a25406d772ea0073faa927bf6eaa77236}} 
+void {\bfseries show\+Action\+Options} ()
+\begin{DoxyCompactList}\small\item\em Displays the available actions to the user. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{cli_helper_8cpp_a59f328acac171a6e334cf7cabe049210}\label{cli_helper_8cpp_a59f328acac171a6e334cf7cabe049210}} 
+void {\bfseries show\+Customer\+Type\+Options} ()
+\begin{DoxyCompactList}\small\item\em Displays the customer type options to the user. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{cli_helper_8cpp_afa383fd335cc63da2f35e8031532b475}\label{cli_helper_8cpp_afa383fd335cc63da2f35e8031532b475}} 
+void {\bfseries show\+Account\+Type\+Options} ()
+\begin{DoxyCompactList}\small\item\em Displays the account type options to the user. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{cli_helper_8cpp_ae5617c662970b5f2c1ede5b288c950f6}{is\+Valid\+Option\+Selection}} (string choice, int max\+Options)
+\begin{DoxyCompactList}\small\item\em Validates the user\textquotesingle{}s option selection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cli_helper_8cpp_aaa8203976aac6f9988fe5588058e60d3}{handle\+Add\+Account\+Choice}} (\mbox{\hyperlink{class_bank}{Bank}} $\ast$bank)
+\begin{DoxyCompactList}\small\item\em Handles the user\textquotesingle{}s choice to add an account. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cli_helper_8cpp_aaa92f0a6b106be67ea3988d9f3844448}{handle\+Make\+Deposit\+Choice}} (\mbox{\hyperlink{class_bank}{Bank}} $\ast$bank)
+\begin{DoxyCompactList}\small\item\em Handles the user\textquotesingle{}s choice to make a deposit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cli_helper_8cpp_a4160cbc5fa45aaec5752bb0102177484}{handle\+Make\+Withdraw\+Choice}} (\mbox{\hyperlink{class_bank}{Bank}} $\ast$bank)
+\begin{DoxyCompactList}\small\item\em Handles the user\textquotesingle{}s choice to make a withdrawal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cli_helper_8cpp_ad81b34ea246774b7d198f5ba27cc72e9}{handle\+Check\+Account\+Choice}} (\mbox{\hyperlink{class_bank}{Bank}} $\ast$bank)
+\begin{DoxyCompactList}\small\item\em Handles the user\textquotesingle{}s choice to check an account. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Source file containing the implementations of the helper functions for the CLI interface. 
+
+\begin{DoxyAuthor}{Author}
+Sathyajit Loganathan 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Oct 10 02\+:16\+:41 2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{cli_helper_8cpp_aaa8203976aac6f9988fe5588058e60d3}\label{cli_helper_8cpp_aaa8203976aac6f9988fe5588058e60d3}} 
+\index{cliHelper.cpp@{cliHelper.cpp}!handleAddAccountChoice@{handleAddAccountChoice}}
+\index{handleAddAccountChoice@{handleAddAccountChoice}!cliHelper.cpp@{cliHelper.cpp}}
+\doxysubsubsection{\texorpdfstring{handleAddAccountChoice()}{handleAddAccountChoice()}}
+{\footnotesize\ttfamily void handle\+Add\+Account\+Choice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_bank}{Bank}} $\ast$}]{bank }\end{DoxyParamCaption})}
+
+
+
+Handles the user\textquotesingle{}s choice to add an account. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bank} & A pointer to the \mbox{\hyperlink{class_bank}{Bank}} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{cli_helper_8cpp_ad81b34ea246774b7d198f5ba27cc72e9}\label{cli_helper_8cpp_ad81b34ea246774b7d198f5ba27cc72e9}} 
+\index{cliHelper.cpp@{cliHelper.cpp}!handleCheckAccountChoice@{handleCheckAccountChoice}}
+\index{handleCheckAccountChoice@{handleCheckAccountChoice}!cliHelper.cpp@{cliHelper.cpp}}
+\doxysubsubsection{\texorpdfstring{handleCheckAccountChoice()}{handleCheckAccountChoice()}}
+{\footnotesize\ttfamily void handle\+Check\+Account\+Choice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_bank}{Bank}} $\ast$}]{bank }\end{DoxyParamCaption})}
+
+
+
+Handles the user\textquotesingle{}s choice to check an account. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bank} & A pointer to the \mbox{\hyperlink{class_bank}{Bank}} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{cli_helper_8cpp_aaa92f0a6b106be67ea3988d9f3844448}\label{cli_helper_8cpp_aaa92f0a6b106be67ea3988d9f3844448}} 
+\index{cliHelper.cpp@{cliHelper.cpp}!handleMakeDepositChoice@{handleMakeDepositChoice}}
+\index{handleMakeDepositChoice@{handleMakeDepositChoice}!cliHelper.cpp@{cliHelper.cpp}}
+\doxysubsubsection{\texorpdfstring{handleMakeDepositChoice()}{handleMakeDepositChoice()}}
+{\footnotesize\ttfamily void handle\+Make\+Deposit\+Choice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_bank}{Bank}} $\ast$}]{bank }\end{DoxyParamCaption})}
+
+
+
+Handles the user\textquotesingle{}s choice to make a deposit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bank} & A pointer to the \mbox{\hyperlink{class_bank}{Bank}} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{cli_helper_8cpp_a4160cbc5fa45aaec5752bb0102177484}\label{cli_helper_8cpp_a4160cbc5fa45aaec5752bb0102177484}} 
+\index{cliHelper.cpp@{cliHelper.cpp}!handleMakeWithdrawChoice@{handleMakeWithdrawChoice}}
+\index{handleMakeWithdrawChoice@{handleMakeWithdrawChoice}!cliHelper.cpp@{cliHelper.cpp}}
+\doxysubsubsection{\texorpdfstring{handleMakeWithdrawChoice()}{handleMakeWithdrawChoice()}}
+{\footnotesize\ttfamily void handle\+Make\+Withdraw\+Choice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_bank}{Bank}} $\ast$}]{bank }\end{DoxyParamCaption})}
+
+
+
+Handles the user\textquotesingle{}s choice to make a withdrawal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bank} & A pointer to the \mbox{\hyperlink{class_bank}{Bank}} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{cli_helper_8cpp_ae5617c662970b5f2c1ede5b288c950f6}\label{cli_helper_8cpp_ae5617c662970b5f2c1ede5b288c950f6}} 
+\index{cliHelper.cpp@{cliHelper.cpp}!isValidOptionSelection@{isValidOptionSelection}}
+\index{isValidOptionSelection@{isValidOptionSelection}!cliHelper.cpp@{cliHelper.cpp}}
+\doxysubsubsection{\texorpdfstring{isValidOptionSelection()}{isValidOptionSelection()}}
+{\footnotesize\ttfamily bool is\+Valid\+Option\+Selection (\begin{DoxyParamCaption}\item[{string}]{choice,  }\item[{int}]{max\+Options }\end{DoxyParamCaption})}
+
+
+
+Validates the user\textquotesingle{}s option selection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em choice} & The user\textquotesingle{}s choice as a string. \\
+\hline
+{\em max\+Options} & The maximum number of available options. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the selection is valid, false otherwise. 
+\end{DoxyReturn}

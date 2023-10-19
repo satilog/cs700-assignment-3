@@ -1,0 +1,36 @@
+\hypertarget{_bank_8h_source}{}\doxysection{Bank.\+h}
+\label{_bank_8h_source}\index{include/Bank.h@{include/Bank.h}}
+\mbox{\hyperlink{_bank_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifndef BANK\_H}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define BANK\_H}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_account_8h}{Account.h}}"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{class_bank}{Bank}}}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32 \textcolor{keyword}{private}:}
+\DoxyCodeLine{33     vector<Account *> accounts; }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{public}:}
+\DoxyCodeLine{39     \mbox{\hyperlink{class_bank_a95972e189e85e1a572348811a8bf0d57}{Bank}}();}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_bank_aaf67e0e70b7cf9b1b0ba96f0b52b4bea}{addAccount}}(\mbox{\hyperlink{class_account}{Account}} *account);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_bank_aefd58aa8e06665dfdd8900f01f1749e0}{makeDeposit}}(\textcolor{keywordtype}{long} \textcolor{keywordtype}{long} accountNumber, \textcolor{keywordtype}{double} amount, \mbox{\hyperlink{class_date}{Date}} date);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_bank_a1f6ea71589ab880d2a9d349d6f6f26c0}{makeWithdrawal}}(\textcolor{keywordtype}{long} \textcolor{keywordtype}{long} accountNumber, \textcolor{keywordtype}{double} amount, \mbox{\hyperlink{class_date}{Date}} date);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{68     \mbox{\hyperlink{class_account}{Account}} *\mbox{\hyperlink{class_bank_ab454b9efeb5978506b19aaa5d8af8e76}{getAccount}}(\textcolor{keywordtype}{long} \textcolor{keywordtype}{long} accountNumber);}
+\DoxyCodeLine{69 \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
