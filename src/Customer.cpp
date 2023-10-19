@@ -51,7 +51,7 @@ string Customer::getCustomerType()
 // Modifiers
 void Customer::setCustomerNumber(int number)
 {
-    this->customerNumber = customerNumber;
+    this->customerNumber = number;
 }
 void Customer::setName(const string &name)
 {
