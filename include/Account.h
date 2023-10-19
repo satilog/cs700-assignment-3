@@ -39,6 +39,8 @@ public:
 
     void deductCheckCharge();
 
+    Date getLastTransactionDate();
+    
     // void deposit(double amount, Date date);
     // void withdraw(double amount, Date date);
     // void addInterest();
